@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/bert/esp/test_project/cmake-build-debug/CMakeFiles/bootloader
+/home/bert/esp/test_project/cmake-build-debug/CMakeFiles/bootloader.rule
+/home/bert/esp/test_project/cmake-build-debug/CMakeFiles/bootloader-complete.rule
+/home/bert/esp/test_project/cmake-build-debug/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/bert/esp/test_project/cmake-build-debug/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/bert/esp/test_project/cmake-build-debug/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/bert/esp/test_project/cmake-build-debug/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+/home/bert/esp/test_project/cmake-build-debug/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/bert/esp/test_project/cmake-build-debug/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/bert/esp/test_project/cmake-build-debug/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
