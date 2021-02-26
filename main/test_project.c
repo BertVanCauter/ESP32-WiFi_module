@@ -1,6 +1,7 @@
 #include <complex.h>
 #include <argz.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <esp_expression_with_stack.h>
 #include "freertos/task.h"
 #include "freertos/FreeRTOS.h"
@@ -11,21 +12,22 @@
 #include "nvs_flash.h"              //wifi
 
 #define CONFIG_LED_PIN GPIO_NUM_4
-#define AP_SSID "ESP_AP_WIFI"
+#define AP_SSID "ESP32_AP_WIFI"
 #define AP_PASSWORD "123456789"
 #define AP_MAX_CONN 4
 #define AP_CHANNEL 0
 #define STA_SSID "NETGEAR89"
 #define STA_PASSWORD "Bou15Ele"
 
+//////////////////////////Function that scans for available networks//////////////////////////////
 void wifi_scan()
 {
     wifi_scan_config_t scan_config = {
-            .ssid = 0,
-            .bssid = 0,
-            .channel = 0,
-            .show_hidden = true
-    };//name of the network //MAC address of Acces Point (AP) //which channel the broadcast is on//if true ESP will write hidden networks on the terminal.
+            .ssid = 0,  //name of the network
+            .bssid = 0, //MAC address of Acces Point (AP)
+            .channel = 0, //which channel the broadcast is on
+            .show_hidden = true //if true ESP will write hidden networks on the terminal.
+    };
     printf("Start scanning...\n");
     ESP_ERROR_CHECK(esp_wifi_scan_start(&scan_config, true)); // first parameters, here the data will be stored.
     printf("Completed!\n");
@@ -45,11 +47,15 @@ void wifi_scan()
 _Noreturn void app_main(void) {
     gpio_pad_select_gpio(CONFIG_LED_PIN);
     gpio_set_direction(CONFIG_LED_PIN, GPIO_MODE_OUTPUT);
+    gpio_set_level(CONFIG_LED_PIN, false);
+
     ESP_ERROR_CHECK(nvs_flash_init());
     tcpip_adapter_init();
     wifi_init_config_t wifi_config = WIFI_INIT_CONFIG_DEFAULT(); //default configuration
     ESP_ERROR_CHECK(esp_wifi_init(&wifi_config));
+
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_APSTA)); // in this mode it is both Access Point & Station
+    /////////////////////////////WiFi Configuration for Access Point//////////////////////////////
     wifi_config_t ap_config = {             //wifi access point
             .ap = {
                     .ssid = AP_SSID,
@@ -60,7 +66,7 @@ _Noreturn void app_main(void) {
             },
     };
     ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_AP, &ap_config));
-
+    /////////////////////////////WiFi Configuration for Station mode//////////////////////////////
     wifi_config_t sta_config = {            //wifi in station mode
             .sta = {
                     .ssid = STA_SSID,
@@ -68,17 +74,15 @@ _Noreturn void app_main(void) {
             },
     };
     ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &sta_config));
-
-
+    //////////////////////WiFi start for Access Point & connect for Station///////////////////////
     ESP_ERROR_CHECK(esp_wifi_start());
     ESP_ERROR_CHECK(esp_wifi_connect());
 
-
-    gpio_set_level(CONFIG_LED_PIN, false);
     vTaskDelay(3000 / portTICK_RATE_MS);
     wifi_scan();
     while (1) {
         vTaskDelay(3000 / portTICK_RATE_MS);
+
     }
 }
 

@@ -1197,6 +1197,8 @@ argz.h
 -
 stdio.h
 -
+stdlib.h
+-
 esp_expression_with_stack.h
 -
 freertos/task.h
