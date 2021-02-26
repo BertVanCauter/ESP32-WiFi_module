@@ -1,28 +1,8 @@
 /home/bert/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/203.7148.70/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/home/bert/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc -DCMAKE_CXX_COMPILER=/home/bert/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-g++ -DCMAKE_TOOLCHAIN_FILE=CrossCompiler.cmake -G "CodeBlocks - Unix Makefiles" /home/bert/esp/test_project
--- Found Git: /usr/bin/git (found version "2.17.1") 
--- IDF_TARGET not set, using default target: esp32
--- The C compiler identification is GNU 8.4.0
--- The CXX compiler identification is GNU 8.4.0
--- The ASM compiler identification is GNU
--- Found assembler: /home/bert/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc
--- Check for working C compiler: /home/bert/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc
--- Check for working C compiler: /home/bert/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc - works
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Detecting C compile features
--- Detecting C compile features - done
--- Check for working CXX compiler: /home/bert/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-g++
--- Check for working CXX compiler: /home/bert/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-g++ - works
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Detecting CXX compile features
--- Detecting CXX compile features - done
 -- Building ESP-IDF components for target esp32
 -- Checking Python dependencies...
 Python requirements from /home/bert/esp/esp-idf/requirements.txt are satisfied.
 -- Project sdkconfig file /home/bert/esp/test_project/sdkconfig
--- Found PythonInterp: /usr/bin/python (found version "3.6.9") 
--- Found Perl: /usr/bin/perl (found version "5.26.1") 
 CMake Warning (dev) at /home/bert/esp/esp-idf/components/mbedtls/CMakeLists.txt:113 (target_sources):
   Policy CMP0076 is not set: target_sources() command converts relative paths
   to absolute.  Run "cmake --help-policy CMP0076" for policy details.  Use
@@ -32,7 +12,7 @@ CMake Warning (dev) at /home/bert/esp/esp-idf/components/mbedtls/CMakeLists.txt:
   has a relative path.
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
--- App "test_project" version: d6e663d-dirty
+-- App "test_project" version: c9a6f5d-dirty
 -- Adding linker script /home/bert/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.ld
 -- Adding linker script /home/bert/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.api.ld
 -- Adding linker script /home/bert/esp/esp-idf/components/esp_rom/esp32/ld/esp32.rom.libgcc.ld

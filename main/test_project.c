@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <esp_expression_with_stack.h>
+#include <utils/wpa_debug.h>
 #include "freertos/task.h"
 #include "freertos/FreeRTOS.h"
 #include "driver/gpio.h"            //io pins configuration
@@ -10,6 +11,9 @@
 #include "esp_event_loop.h"
 #include "esp_wifi.h"               //wifi
 #include "nvs_flash.h"              //wifi
+#include "esp_http_client.h"
+#include "esp_https_ota.h"
+#include "esp_http_server.h"
 
 #define CONFIG_LED_PIN GPIO_NUM_4
 #define AP_SSID "ESP32_AP_WIFI"
@@ -43,7 +47,26 @@ void wifi_scan()
         printf("%32s  |   %7d  |   %4d\n", ap_records[i].ssid, ap_records[i].primary, ap_records[i].rssi);
     }
 }
+/*
+//////////////////////////////////HTTPS connection to webpage/////////////////////////////////////
+static void https()
+{
+    esp_http_client_config_t config = {
+            .url = "https://www.howsmyssl.com",
+            .cert_pem = howsmyssl_com_root_cert_pem_start,
+    };
+    esp_http_client_handle_t client = esp_http_client_init(&config);
+    esp_err_t err = esp_http_client_perform(client);
 
+    if (err == ESP_OK) {
+        ESP_LOGI(TAG, "Status = %d, content_length = %d",
+                 esp_http_client_get_status_code(client),
+                 esp_http_client_get_content_length(client));
+    }
+    esp_http_client_cleanup(client);
+}
+*/
+////////////////////////////////////////////MAIN PROGRAM/////////////////////////////////////////
 _Noreturn void app_main(void) {
     gpio_pad_select_gpio(CONFIG_LED_PIN);
     gpio_set_direction(CONFIG_LED_PIN, GPIO_MODE_OUTPUT);
@@ -77,9 +100,11 @@ _Noreturn void app_main(void) {
     //////////////////////WiFi start for Access Point & connect for Station///////////////////////
     ESP_ERROR_CHECK(esp_wifi_start());
     ESP_ERROR_CHECK(esp_wifi_connect());
-
     vTaskDelay(3000 / portTICK_RATE_MS);
     wifi_scan();
+
+
+
     while (1) {
         vTaskDelay(3000 / portTICK_RATE_MS);
 
