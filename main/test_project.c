@@ -12,17 +12,28 @@
 #include "esp_wifi.h"               //wifi
 #include "nvs_flash.h"              //wifi
 
+#include "lwip/err.h"
+#include "lwip/sockets.h"
+#include "lwip/sys.h"
+#include <lwip/netdb.h>
+
 #define CONFIG_LED_PIN GPIO_NUM_4
+
 #define AP_SSID "ESP32_AP_WIFI"
 #define AP_PASSWORD "password1234"
 #define AP_MAX_CONN 4
 #define AP_CHANNEL 0
+
+#define PORT 3333
+
 #define STA_SSID "NETGEAR89"
 #define STA_PASSWORD "Bou15Ele"
 
+#define TAG "test_project"
+
+
 //////////////////////////Function that scans for available networks//////////////////////////////
-void wifi_scan()
-{
+void wifi_scan() {
     wifi_scan_config_t scan_config = {
             .ssid = 0,  //name of the network
             .bssid = 0, //MAC address of Acces Point (AP)
@@ -39,29 +50,19 @@ void wifi_scan()
 
     printf("Found %d acces points: \n", ap_num);
     printf("|                  SSID           |   CHANNEL  |   RSSI\n\n");
-    for(int i=0; i<ap_num; i++)
-    {
+    for (int i = 0; i < ap_num; i++) {
         printf("%32s  |   %7d  |   %4d\n", ap_records[i].ssid, ap_records[i].primary, ap_records[i].rssi);
     }
 }
 
-//////////////////////////////////HTTPS connection to webpage/////////////////////////////////////
 
-
-
-///--------------------------------------------------------------------------------------------///
-///--------------------------------------MAIN PROGRAM------------------------------------------///
-///--------------------------------------------------------------------------------------------///
-_Noreturn void app_main(void) {
-    gpio_pad_select_gpio(CONFIG_LED_PIN);
-    gpio_set_direction(CONFIG_LED_PIN, GPIO_MODE_OUTPUT);
-    gpio_set_level(CONFIG_LED_PIN, false);
-
-    ESP_ERROR_CHECK(nvs_flash_init());
+///------------------------------------------------------------------------------------------------------------------///
+///--------------------------------------------------WiFi Setup------------------------------------------------------///
+///------------------------------------------------------------------------------------------------------------------///
+void wifi_setup() {
     tcpip_adapter_init();
     wifi_init_config_t wifi_config = WIFI_INIT_CONFIG_DEFAULT(); //default configuration
     ESP_ERROR_CHECK(esp_wifi_init(&wifi_config));
-
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_APSTA)); // in this mode it is both Access Point & Station
     /////////////////////////////WiFi Configuration for Access Point//////////////////////////////
     wifi_config_t ap_config = {             //wifi access point
@@ -74,8 +75,7 @@ _Noreturn void app_main(void) {
                     .authmode = WIFI_AUTH_WPA_WPA2_PSK, //make it a secure connection
             },
     };
-    if(strlen(AP_PASSWORD) == 0)
-    {
+    if (strlen(AP_PASSWORD) == 0) {
         ap_config.ap.authmode = WIFI_AUTH_OPEN; // if the hardcoded password is zero for length, than open Access Point.
     }
     ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_AP, &ap_config));
@@ -89,61 +89,30 @@ _Noreturn void app_main(void) {
     ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &sta_config));
     //////////////////////WiFi start for Access Point & connect for Station///////////////////////
     ESP_ERROR_CHECK(esp_wifi_start());
-    ESP_ERROR_CHECK(esp_wifi_connect());
-    vTaskDelay(3000 / portTICK_RATE_MS);
+    ESP_LOGI(TAG, "wifi_AP finished. SSID:%s password:%s channel:%d",AP_SSID, AP_PASSWORD, AP_CHANNEL);
     wifi_scan();
+    ESP_ERROR_CHECK(esp_wifi_connect());
+    ESP_LOGI(TAG, "wifi_STA finished. SSID:%s password:%s channel:%d",STA_SSID, "********", sta_config.sta.channel);
+    vTaskDelay(3000 / portTICK_RATE_MS);
+}
 
+
+///------------------------------------------------------------------------------------------------------------------///
+///---------------------------------------------------MAIN PROGRAM---------------------------------------------------///
+///------------------------------------------------------------------------------------------------------------------///
+_Noreturn void app_main(void) {
+    ESP_ERROR_CHECK(nvs_flash_init());
+    gpio_pad_select_gpio(CONFIG_LED_PIN);
+    gpio_set_direction(CONFIG_LED_PIN, GPIO_MODE_OUTPUT);
+    gpio_set_level(CONFIG_LED_PIN, false);
+    wifi_setup();
+
+    //xTaskCreate(tcp_server_task, "tcp_server", 4096, (void*)NULL, 5,
+                //NULL);
     while (1) {
         vTaskDelay(3000 / portTICK_RATE_MS);
     }
 }
 
 
-    /*
-    gpio_pad_select_gpio(CONFIG_BUTTON_PIN);
-    gpio_pad_select_gpio(CONFIG_LED_PIN);
 
-    // set the correct direction
-    gpio_set_direction(CONFIG_BUTTON_PIN,GPIO_MODE_INPUT);
-    gpio_set_direction(CONFIG_LED_PIN, GPIO_MODE_OUTPUT);
-
-    // enable interupt on falling (1->0) edge of buttonpin
-    gpio_set_intr_type(CONFIG_BUTTON_PIN,GPIO_INTR_NEGEDGE);
-
-    // Install the driver's GPIO ISR handler service, which allows per-pin GPIO interrupt handlers.
-    // install ISR service with default configuration
-    gpio_install_isr_service(ESP_INT_FLAG_DEFAULT);
-
-    // attach the interrupt service routine
-    gpio_isr_handler_add(CONFIG_BUTTON_PIN, button_isr_handler, NULL);
-
-    // create and start stats task
-    xTaskCreate( button_task, "button_task", 4096, NULL, 10, &ISR);
-    */
-
-
-
-/*
-#define ESP_INT_FLAG_DEFAULT 0
-#define CONFIG_BUTTON_PIN GPIO_NUM_36
-
-
-TaskHandle_t ISR = NULL;
-
-void IRAM_ATTR button_isr_handler(void *arg)
-{
-    xTaskResumeFromISR(ISR);
-}
-
-_Noreturn void button_task(void *arg)
-{
-    bool led_status = false;
-    while(1)
-    {
-        vTaskSuspend(NULL);
-        led_status = !led_status;
-        gpio_set_level(CONFIG_LED_PIN, led_status);
-        printf("Button pressed!!\n");
-    }
-}
-*/
