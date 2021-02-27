@@ -3,17 +3,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <esp_expression_with_stack.h>
+#include <string.h>
 #include "freertos/task.h"
 #include "freertos/FreeRTOS.h"
 #include "driver/gpio.h"            //io pins configuration
 #include "esp_log.h"                //logging
-#include "esp_event_loop.h"
+#include "esp_event.h"
 #include "esp_wifi.h"               //wifi
 #include "nvs_flash.h"              //wifi
 
 #define CONFIG_LED_PIN GPIO_NUM_4
 #define AP_SSID "ESP32_AP_WIFI"
-#define AP_PASSWORD "123456789"
+#define AP_PASSWORD "password1234"
 #define AP_MAX_CONN 4
 #define AP_CHANNEL 0
 #define STA_SSID "NETGEAR89"
@@ -70,8 +71,13 @@ _Noreturn void app_main(void) {
                     .max_connection = AP_MAX_CONN,
                     .channel = AP_CHANNEL,
                     .ssid_hidden = 0,
+                    .authmode = WIFI_AUTH_WPA_WPA2_PSK, //make it a secure connection
             },
     };
+    if(strlen(AP_PASSWORD) == 0)
+    {
+        ap_config.ap.authmode = WIFI_AUTH_OPEN; // if the hardcoded password is zero for length, than open Access Point.
+    }
     ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_AP, &ap_config));
     /////////////////////////////WiFi Configuration for Station mode//////////////////////////////
     wifi_config_t sta_config = {            //wifi in station mode
