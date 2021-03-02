@@ -13637,6 +13637,12 @@
 		<Unit filename="/home/bert/esp/test_project/main/test_project.c">
 			<Option target="__idf_main"/>
 		</Unit>
+		<Unit filename="/home/bert/esp/test_project/main/wifi_config.c">
+			<Option target="__idf_main"/>
+		</Unit>
+		<Unit filename="/home/bert/esp/test_project/main/wifi_config.h">
+			<Option target="__idf_main"/>
+		</Unit>
 		<Unit filename="/home/bert/esp/test_project/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

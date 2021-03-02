@@ -728,6 +728,10 @@ portmacro.h
 ../../Source/portable/IAR/78K0R/portmacro.h
 /home/bert/esp/esp-idf/components/freertos/Source/portable/IAR/78K0R/portmacro.h
 
+/home/bert/esp/esp-idf/components/freertos/include/freertos/event_groups.h
+timers.h
+/home/bert/esp/esp-idf/components/freertos/include/freertos/timers.h
+
 /home/bert/esp/esp-idf/components/freertos/include/freertos/list.h
 
 /home/bert/esp/esp-idf/components/freertos/include/freertos/mpu_wrappers.h
@@ -755,6 +759,10 @@ list.h
 /home/bert/esp/esp-idf/components/freertos/include/freertos/list.h
 freertos/portmacro.h
 /home/bert/esp/esp-idf/components/freertos/include/freertos/freertos/portmacro.h
+
+/home/bert/esp/esp-idf/components/freertos/include/freertos/timers.h
+task.h
+/home/bert/esp/esp-idf/components/freertos/include/freertos/task.h
 
 /home/bert/esp/esp-idf/components/freertos/port/xtensa/include/freertos/FreeRTOSConfig.h
 sdkconfig.h
@@ -1075,16 +1083,6 @@ lwip/priv/memp_priv.h
 /home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/lwip/priv/memp_priv.h
 lwip/stats.h
 /home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/lwip/stats.h
-
-/home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/netdb.h
-lwip/opt.h
-/home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/lwip/opt.h
-lwip/arch.h
-/home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/lwip/arch.h
-lwip/inet.h
-/home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/lwip/inet.h
-lwip/sockets.h
-/home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/lwip/sockets.h
 
 /home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/netif.h
 lwip/opt.h
@@ -1536,16 +1534,8 @@ xtensa/config/specreg.h
 xtensa/xtruntime-core-state.h
 -
 
-/home/bert/esp/test_project/main/test_project.c
+/home/bert/esp/test_project/main/config.h
 complex.h
--
-argz.h
--
-stdio.h
--
-stdlib.h
--
-esp_expression_with_stack.h
 -
 string.h
 -
@@ -1553,24 +1543,34 @@ freertos/task.h
 /home/bert/esp/test_project/main/freertos/task.h
 freertos/FreeRTOS.h
 /home/bert/esp/test_project/main/freertos/FreeRTOS.h
+freertos/event_groups.h
+/home/bert/esp/test_project/main/freertos/event_groups.h
 driver/gpio.h
 /home/bert/esp/test_project/main/driver/gpio.h
 esp_log.h
 /home/bert/esp/test_project/main/esp_log.h
 esp_event.h
 /home/bert/esp/test_project/main/esp_event.h
+esp_netif.h
+/home/bert/esp/test_project/main/esp_netif.h
+esp_err.h
+/home/bert/esp/test_project/main/esp_err.h
 esp_wifi.h
 /home/bert/esp/test_project/main/esp_wifi.h
 nvs_flash.h
 /home/bert/esp/test_project/main/nvs_flash.h
-lwip/err.h
-/home/bert/esp/test_project/main/lwip/err.h
+
+/home/bert/esp/test_project/main/test_project.c
+stdio.h
+-
+stdlib.h
+-
+esp_expression_with_stack.h
+-
 lwip/sockets.h
 /home/bert/esp/test_project/main/lwip/sockets.h
-lwip/sys.h
-/home/bert/esp/test_project/main/lwip/sys.h
-lwip/netdb.h
--
+config.h
+/home/bert/esp/test_project/main/config.h
 
 config/sdkconfig.h
 

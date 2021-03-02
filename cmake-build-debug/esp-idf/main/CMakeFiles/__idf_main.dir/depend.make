@@ -71,6 +71,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-id
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/esp_wifi/include/esp_wifi_types.h
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/freertos/include/freertos/FreeRTOS.h
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/freertos/include/freertos/deprecated_definitions.h
+esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/freertos/include/freertos/event_groups.h
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/freertos/include/freertos/list.h
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/freertos/include/freertos/mpu_wrappers.h
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/freertos/include/freertos/portable.h
@@ -78,6 +79,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-id
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/freertos/include/freertos/queue.h
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/freertos/include/freertos/semphr.h
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/freertos/include/freertos/task.h
+esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/freertos/include/freertos/timers.h
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/freertos/port/xtensa/include/freertos/FreeRTOSConfig.h
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/freertos/port/xtensa/include/freertos/portbenchmark.h
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/freertos/port/xtensa/include/freertos/portmacro.h
@@ -109,7 +111,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-id
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/ip_addr.h
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/mem.h
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/memp.h
-esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/netdb.h
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/netif.h
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/opt.h
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/pbuf.h
@@ -174,6 +175,10 @@ esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-id
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/xtensa/include/xtensa/xtruntime-core-state.h
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/xtensa/include/xtensa/xtruntime-frames.h
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: /home/bert/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h
+esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: ../main/config.h
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: ../main/test_project.c
 esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj: config/sdkconfig.h
+
+esp-idf/main/CMakeFiles/__idf_main.dir/wifi_config.c.obj: ../main/wifi_config.c
+esp-idf/main/CMakeFiles/__idf_main.dir/wifi_config.c.obj: ../main/wifi_config.h
 

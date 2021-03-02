@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/home/bert/esp/test_project/main/test_project.c" "/home/bert/esp/test_project/cmake-build-debug/esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj"
+  "/home/bert/esp/test_project/main/wifi_config.c" "/home/bert/esp/test_project/cmake-build-debug/esp-idf/main/CMakeFiles/__idf_main.dir/wifi_config.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

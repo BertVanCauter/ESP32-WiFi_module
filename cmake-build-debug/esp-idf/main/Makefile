@@ -218,6 +218,33 @@ test_project.c.s:
 	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.s
 .PHONY : test_project.c.s
 
+wifi_config.obj: wifi_config.c.obj
+
+.PHONY : wifi_config.obj
+
+# target to build an object file
+wifi_config.c.obj:
+	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/wifi_config.c.obj
+.PHONY : wifi_config.c.obj
+
+wifi_config.i: wifi_config.c.i
+
+.PHONY : wifi_config.i
+
+# target to preprocess a source file
+wifi_config.c.i:
+	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/wifi_config.c.i
+.PHONY : wifi_config.c.i
+
+wifi_config.s: wifi_config.c.s
+
+.PHONY : wifi_config.s
+
+# target to generate assembly for a file
+wifi_config.c.s:
+	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/wifi_config.c.s
+.PHONY : wifi_config.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -234,6 +261,9 @@ help:
 	@echo "... test_project.obj"
 	@echo "... test_project.i"
 	@echo "... test_project.s"
+	@echo "... wifi_config.obj"
+	@echo "... wifi_config.i"
+	@echo "... wifi_config.s"
 .PHONY : help
 
 

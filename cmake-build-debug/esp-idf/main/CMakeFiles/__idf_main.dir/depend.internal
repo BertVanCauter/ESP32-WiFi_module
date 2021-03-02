@@ -72,6 +72,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj
  /home/bert/esp/esp-idf/components/esp_wifi/include/esp_wifi_types.h
  /home/bert/esp/esp-idf/components/freertos/include/freertos/FreeRTOS.h
  /home/bert/esp/esp-idf/components/freertos/include/freertos/deprecated_definitions.h
+ /home/bert/esp/esp-idf/components/freertos/include/freertos/event_groups.h
  /home/bert/esp/esp-idf/components/freertos/include/freertos/list.h
  /home/bert/esp/esp-idf/components/freertos/include/freertos/mpu_wrappers.h
  /home/bert/esp/esp-idf/components/freertos/include/freertos/portable.h
@@ -79,6 +80,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj
  /home/bert/esp/esp-idf/components/freertos/include/freertos/queue.h
  /home/bert/esp/esp-idf/components/freertos/include/freertos/semphr.h
  /home/bert/esp/esp-idf/components/freertos/include/freertos/task.h
+ /home/bert/esp/esp-idf/components/freertos/include/freertos/timers.h
  /home/bert/esp/esp-idf/components/freertos/port/xtensa/include/freertos/FreeRTOSConfig.h
  /home/bert/esp/esp-idf/components/freertos/port/xtensa/include/freertos/portbenchmark.h
  /home/bert/esp/esp-idf/components/freertos/port/xtensa/include/freertos/portmacro.h
@@ -110,7 +112,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj
  /home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/ip_addr.h
  /home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/mem.h
  /home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/memp.h
- /home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/netdb.h
  /home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/netif.h
  /home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/opt.h
  /home/bert/esp/esp-idf/components/lwip/lwip/src/include/lwip/pbuf.h
@@ -175,5 +176,9 @@ esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj
  /home/bert/esp/esp-idf/components/xtensa/include/xtensa/xtruntime-core-state.h
  /home/bert/esp/esp-idf/components/xtensa/include/xtensa/xtruntime-frames.h
  /home/bert/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h
+ /home/bert/esp/test_project/main/config.h
  /home/bert/esp/test_project/main/test_project.c
  config/sdkconfig.h
+esp-idf/main/CMakeFiles/__idf_main.dir/wifi_config.c.obj
+ /home/bert/esp/test_project/main/wifi_config.c
+ /home/bert/esp/test_project/main/wifi_config.h
