@@ -191,6 +191,33 @@ __idf_main/fast:
 	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/build
 .PHONY : __idf_main/fast
 
+tcp_server.obj: tcp_server.c.obj
+
+.PHONY : tcp_server.obj
+
+# target to build an object file
+tcp_server.c.obj:
+	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/tcp_server.c.obj
+.PHONY : tcp_server.c.obj
+
+tcp_server.i: tcp_server.c.i
+
+.PHONY : tcp_server.i
+
+# target to preprocess a source file
+tcp_server.c.i:
+	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/tcp_server.c.i
+.PHONY : tcp_server.c.i
+
+tcp_server.s: tcp_server.c.s
+
+.PHONY : tcp_server.s
+
+# target to generate assembly for a file
+tcp_server.c.s:
+	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/tcp_server.c.s
+.PHONY : tcp_server.c.s
+
 test_project.obj: test_project.c.obj
 
 .PHONY : test_project.obj
@@ -258,6 +285,9 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... __idf_main"
+	@echo "... tcp_server.obj"
+	@echo "... tcp_server.i"
+	@echo "... tcp_server.s"
 	@echo "... test_project.obj"
 	@echo "... test_project.i"
 	@echo "... test_project.s"

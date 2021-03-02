@@ -13634,6 +13634,12 @@
 		<Unit filename="/home/bert/esp/test_project/cmake-build-debug/x509_crt_bundle.S">
 			<Option target="__idf_mbedtls"/>
 		</Unit>
+		<Unit filename="/home/bert/esp/test_project/main/tcp_server.c">
+			<Option target="__idf_main"/>
+		</Unit>
+		<Unit filename="/home/bert/esp/test_project/main/tcp_server.h">
+			<Option target="__idf_main"/>
+		</Unit>
 		<Unit filename="/home/bert/esp/test_project/main/test_project.c">
 			<Option target="__idf_main"/>
 		</Unit>
