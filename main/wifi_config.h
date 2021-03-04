@@ -18,6 +18,11 @@
 #define AP_MAX_CONN 4
 #define AP_CHANNEL 0
 
+
+void wifi_setup_ap();
+
+void wifi_setup_sta();
+
 void wifi_setup();
 
 void wifi_event_handler(void* arg, esp_event_base_t event_base,

@@ -22,4 +22,6 @@
 #define PORT 3333
 #define TAG "test_project"
 
+SemaphoreHandle_t mutex_toggle;
+
 #endif //TEST_PROJECT_CONFIG_H
