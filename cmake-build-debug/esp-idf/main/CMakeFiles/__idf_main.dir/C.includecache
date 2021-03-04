@@ -1964,6 +1964,30 @@ esp_wifi.h
 nvs_flash.h
 /home/bert/esp/test_project/main/nvs_flash.h
 
+/home/bert/esp/test_project/main/http_handler.c
+http_handler.h
+/home/bert/esp/test_project/main/http_handler.h
+config.h
+/home/bert/esp/test_project/main/config.h
+
+/home/bert/esp/test_project/main/http_handler.h
+lwip/err.h
+/home/bert/esp/test_project/main/lwip/err.h
+lwip/sockets.h
+/home/bert/esp/test_project/main/lwip/sockets.h
+lwip/sys.h
+/home/bert/esp/test_project/main/lwip/sys.h
+lwip/netdb.h
+/home/bert/esp/test_project/main/lwip/netdb.h
+lwip/dns.h
+/home/bert/esp/test_project/main/lwip/dns.h
+esp_system.h
+/home/bert/esp/test_project/main/esp_system.h
+esp_tls.h
+/home/bert/esp/test_project/main/esp_tls.h
+esp_crt_bundle.h
+/home/bert/esp/test_project/main/esp_crt_bundle.h
+
 /home/bert/esp/test_project/main/tcp_server.h
 lwip/sockets.h
 /home/bert/esp/test_project/main/lwip/sockets.h
@@ -1981,22 +2005,8 @@ wifi_config.h
 /home/bert/esp/test_project/main/wifi_config.h
 tcp_server.h
 /home/bert/esp/test_project/main/tcp_server.h
-lwip/err.h
-/home/bert/esp/test_project/main/lwip/err.h
-lwip/sockets.h
-/home/bert/esp/test_project/main/lwip/sockets.h
-lwip/sys.h
-/home/bert/esp/test_project/main/lwip/sys.h
-lwip/netdb.h
-/home/bert/esp/test_project/main/lwip/netdb.h
-lwip/dns.h
-/home/bert/esp/test_project/main/lwip/dns.h
-esp_system.h
-/home/bert/esp/test_project/main/esp_system.h
-esp_tls.h
-/home/bert/esp/test_project/main/esp_tls.h
-esp_crt_bundle.h
-/home/bert/esp/test_project/main/esp_crt_bundle.h
+http_handler.h
+/home/bert/esp/test_project/main/http_handler.h
 
 /home/bert/esp/test_project/main/wifi_config.h
 
