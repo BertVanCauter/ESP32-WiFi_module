@@ -116,11 +116,25 @@ esp-idf/main/CMakeFiles/__idf_main.dir/tcp_server.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/__idf_main.dir/tcp_server.c.s"
 	cd /home/bert/esp/test_project/cmake-build-debug/esp-idf/main && /home/bert/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bert/esp/test_project/main/tcp_server.c -o CMakeFiles/__idf_main.dir/tcp_server.c.s
 
+esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj: esp-idf/main/CMakeFiles/__idf_main.dir/flags.make
+esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj: ../main/http_handler.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bert/esp/test_project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj"
+	cd /home/bert/esp/test_project/cmake-build-debug/esp-idf/main && /home/bert/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/__idf_main.dir/http_handler.c.obj   -c /home/bert/esp/test_project/main/http_handler.c
+
+esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/__idf_main.dir/http_handler.c.i"
+	cd /home/bert/esp/test_project/cmake-build-debug/esp-idf/main && /home/bert/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/bert/esp/test_project/main/http_handler.c > CMakeFiles/__idf_main.dir/http_handler.c.i
+
+esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/__idf_main.dir/http_handler.c.s"
+	cd /home/bert/esp/test_project/cmake-build-debug/esp-idf/main && /home/bert/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bert/esp/test_project/main/http_handler.c -o CMakeFiles/__idf_main.dir/http_handler.c.s
+
 # Object files for target __idf_main
 __idf_main_OBJECTS = \
 "CMakeFiles/__idf_main.dir/test_project.c.obj" \
 "CMakeFiles/__idf_main.dir/wifi_config.c.obj" \
-"CMakeFiles/__idf_main.dir/tcp_server.c.obj"
+"CMakeFiles/__idf_main.dir/tcp_server.c.obj" \
+"CMakeFiles/__idf_main.dir/http_handler.c.obj"
 
 # External object files for target __idf_main
 __idf_main_EXTERNAL_OBJECTS =
@@ -128,9 +142,10 @@ __idf_main_EXTERNAL_OBJECTS =
 esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj
 esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/wifi_config.c.obj
 esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/tcp_server.c.obj
+esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj
 esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/build.make
 esp-idf/main/libmain.a: esp-idf/main/CMakeFiles/__idf_main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/bert/esp/test_project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C static library libmain.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/bert/esp/test_project/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C static library libmain.a"
 	cd /home/bert/esp/test_project/cmake-build-debug/esp-idf/main && $(CMAKE_COMMAND) -P CMakeFiles/__idf_main.dir/cmake_clean_target.cmake
 	cd /home/bert/esp/test_project/cmake-build-debug/esp-idf/main && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/__idf_main.dir/link.txt --verbose=$(VERBOSE)
 

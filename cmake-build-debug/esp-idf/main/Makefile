@@ -191,6 +191,33 @@ __idf_main/fast:
 	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/build
 .PHONY : __idf_main/fast
 
+http_handler.obj: http_handler.c.obj
+
+.PHONY : http_handler.obj
+
+# target to build an object file
+http_handler.c.obj:
+	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj
+.PHONY : http_handler.c.obj
+
+http_handler.i: http_handler.c.i
+
+.PHONY : http_handler.i
+
+# target to preprocess a source file
+http_handler.c.i:
+	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.i
+.PHONY : http_handler.c.i
+
+http_handler.s: http_handler.c.s
+
+.PHONY : http_handler.s
+
+# target to generate assembly for a file
+http_handler.c.s:
+	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.s
+.PHONY : http_handler.c.s
+
 tcp_server.obj: tcp_server.c.obj
 
 .PHONY : tcp_server.obj
@@ -285,6 +312,9 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... __idf_main"
+	@echo "... http_handler.obj"
+	@echo "... http_handler.i"
+	@echo "... http_handler.s"
 	@echo "... tcp_server.obj"
 	@echo "... tcp_server.i"
 	@echo "... tcp_server.s"

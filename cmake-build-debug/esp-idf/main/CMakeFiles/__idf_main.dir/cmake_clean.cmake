@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/__idf_main.dir/http_handler.c.obj"
   "CMakeFiles/__idf_main.dir/tcp_server.c.obj"
   "CMakeFiles/__idf_main.dir/test_project.c.obj"
   "CMakeFiles/__idf_main.dir/wifi_config.c.obj"
