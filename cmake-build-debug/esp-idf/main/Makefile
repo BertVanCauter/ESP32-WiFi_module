@@ -191,6 +191,33 @@ __idf_main/fast:
 	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/build
 .PHONY : __idf_main/fast
 
+WiFi_prov.obj: WiFi_prov.c.obj
+
+.PHONY : WiFi_prov.obj
+
+# target to build an object file
+WiFi_prov.c.obj:
+	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/WiFi_prov.c.obj
+.PHONY : WiFi_prov.c.obj
+
+WiFi_prov.i: WiFi_prov.c.i
+
+.PHONY : WiFi_prov.i
+
+# target to preprocess a source file
+WiFi_prov.c.i:
+	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/WiFi_prov.c.i
+.PHONY : WiFi_prov.c.i
+
+WiFi_prov.s: WiFi_prov.c.s
+
+.PHONY : WiFi_prov.s
+
+# target to generate assembly for a file
+WiFi_prov.c.s:
+	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/WiFi_prov.c.s
+.PHONY : WiFi_prov.c.s
+
 http_handler.obj: http_handler.c.obj
 
 .PHONY : http_handler.obj
@@ -312,6 +339,9 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... __idf_main"
+	@echo "... WiFi_prov.obj"
+	@echo "... WiFi_prov.i"
+	@echo "... WiFi_prov.s"
 	@echo "... http_handler.obj"
 	@echo "... http_handler.i"
 	@echo "... http_handler.s"

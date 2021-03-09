@@ -1696,6 +1696,20 @@ nvs.h
 esp_partition.h
 /home/bert/esp/esp-idf/components/nvs_flash/include/esp_partition.h
 
+/home/bert/esp/esp-idf/components/protocomm/include/common/protocomm.h
+protocomm_security.h
+-
+esp_err.h
+-
+
+/home/bert/esp/esp-idf/components/protocomm/include/security/protocomm_security.h
+esp_err.h
+-
+
+/home/bert/esp/esp-idf/components/protocomm/include/transports/protocomm_httpd.h
+protocomm.h
+-
+
 /home/bert/esp/esp-idf/components/soc/esp32/include/soc/gpio_reg.h
 soc.h
 /home/bert/esp/esp-idf/components/soc/esp32/include/soc/soc.h
@@ -1820,6 +1834,26 @@ dhcpserver/dhcpserver.h
 esp_netif_sta_list.h
 /home/bert/esp/esp-idf/components/tcpip_adapter/include/esp_netif_sta_list.h
 
+/home/bert/esp/esp-idf/components/wifi_provisioning/include/wifi_provisioning/manager.h
+protocomm.h
+-
+esp_event.h
+/home/bert/esp/esp-idf/components/wifi_provisioning/include/wifi_provisioning/esp_event.h
+wifi_provisioning/wifi_config.h
+/home/bert/esp/esp-idf/components/wifi_provisioning/include/wifi_provisioning/wifi_provisioning/wifi_config.h
+
+/home/bert/esp/esp-idf/components/wifi_provisioning/include/wifi_provisioning/scheme_softap.h
+protocomm.h
+-
+protocomm_httpd.h
+-
+wifi_provisioning/manager.h
+/home/bert/esp/esp-idf/components/wifi_provisioning/include/wifi_provisioning/wifi_provisioning/manager.h
+
+/home/bert/esp/esp-idf/components/wifi_provisioning/include/wifi_provisioning/wifi_config.h
+lwip/inet.h
+-
+
 /home/bert/esp/esp-idf/components/xtensa/esp32/include/xtensa/config/core-isa.h
 
 /home/bert/esp/esp-idf/components/xtensa/esp32/include/xtensa/config/core-matmap.h
@@ -1938,6 +1972,8 @@ xtensa/config/specreg.h
 xtensa/xtruntime-core-state.h
 -
 
+/home/bert/esp/test_project/main/WiFi_prov.h
+
 /home/bert/esp/test_project/main/config.h
 complex.h
 -
@@ -1963,12 +1999,10 @@ esp_wifi.h
 /home/bert/esp/test_project/main/esp_wifi.h
 nvs_flash.h
 /home/bert/esp/test_project/main/nvs_flash.h
-
-/home/bert/esp/test_project/main/http_handler.c
-http_handler.h
-/home/bert/esp/test_project/main/http_handler.h
-config.h
-/home/bert/esp/test_project/main/config.h
+wifi_provisioning/manager.h
+-
+wifi_provisioning/scheme_softap.h
+-
 
 /home/bert/esp/test_project/main/http_handler.h
 lwip/err.h
@@ -2007,6 +2041,8 @@ tcp_server.h
 /home/bert/esp/test_project/main/tcp_server.h
 http_handler.h
 /home/bert/esp/test_project/main/http_handler.h
+WiFi_prov.h
+/home/bert/esp/test_project/main/WiFi_prov.h
 
 /home/bert/esp/test_project/main/wifi_config.h
 

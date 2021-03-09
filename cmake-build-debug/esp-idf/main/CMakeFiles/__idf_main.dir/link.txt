@@ -1,2 +1,2 @@
-/home/bert/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ar qc libmain.a  CMakeFiles/__idf_main.dir/test_project.c.obj CMakeFiles/__idf_main.dir/wifi_config.c.obj CMakeFiles/__idf_main.dir/tcp_server.c.obj CMakeFiles/__idf_main.dir/http_handler.c.obj
+/home/bert/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ar qc libmain.a  CMakeFiles/__idf_main.dir/test_project.c.obj CMakeFiles/__idf_main.dir/wifi_config.c.obj CMakeFiles/__idf_main.dir/tcp_server.c.obj CMakeFiles/__idf_main.dir/http_handler.c.obj CMakeFiles/__idf_main.dir/WiFi_prov.c.obj
 /home/bert/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ranlib libmain.a
