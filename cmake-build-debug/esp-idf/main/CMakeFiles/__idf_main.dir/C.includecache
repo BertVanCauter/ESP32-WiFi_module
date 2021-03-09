@@ -2022,10 +2022,6 @@ esp_tls.h
 esp_crt_bundle.h
 /home/bert/esp/test_project/main/esp_crt_bundle.h
 
-/home/bert/esp/test_project/main/tcp_server.h
-lwip/sockets.h
-/home/bert/esp/test_project/main/lwip/sockets.h
-
 /home/bert/esp/test_project/main/test_project.c
 stdio.h
 -
@@ -2035,16 +2031,10 @@ esp_expression_with_stack.h
 -
 config.h
 /home/bert/esp/test_project/main/config.h
-wifi_config.h
-/home/bert/esp/test_project/main/wifi_config.h
-tcp_server.h
-/home/bert/esp/test_project/main/tcp_server.h
 http_handler.h
 /home/bert/esp/test_project/main/http_handler.h
 WiFi_prov.h
 /home/bert/esp/test_project/main/WiFi_prov.h
-
-/home/bert/esp/test_project/main/wifi_config.h
 
 config/sdkconfig.h
 

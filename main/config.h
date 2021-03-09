@@ -28,7 +28,7 @@
 #define WIFI_FAIL_BIT      BIT1
 EventGroupHandle_t wifi_event_group;
 
-SemaphoreHandle_t mutex_toggle;
+SemaphoreHandle_t led_mutex;
 
 void wifi_prov();
 

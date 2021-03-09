@@ -18,7 +18,7 @@
 /* Constants that aren't configurable in menuconfig */
 #define WEB_SERVER "www.google.com"
 #define WEB_PORT "443"
-#define WEB_URL "https://www.google.com/"
+#define WEB_URL "http://a20fire2.studev.groept.be"
 
 void https_get_request(esp_tls_cfg_t cfg);
 void https_get_request_using_crt_bundle(void);

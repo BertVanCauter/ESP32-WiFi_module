@@ -58,6 +58,30 @@ void wifi_prov()
     }
 }
 
+/*void led_manager()
+{
+    while(1)
+    {
+        if (led_mutex != NULL){
+            if(xSemaphoreTake(led_mutex, portMAX_DELAY) == pdTRUE )
+            {
+                while(xSemaphoreTake(led_mutex, portMAX_DELAY) == pdTRUE )
+                {
+                    int led_level = 0;
+                    led_level = 1-led_level;
+                    gpio_set_level(CONFIG_LED_ONBOARD, led_level);
+                    vTaskDelay(3000 / portTICK_RATE_MS);
+                }
+            }
+            else
+            {
+                // We could not obtain the semaphore and can therefore not access
+                // the shared resource safely.
+                ESP_LOGI(TAG, "%lld : Mutex_TOGGLE timeout...", esp_timer_get_time());
+            }
+        }
+    }
+}*/
 
 
 
@@ -66,6 +90,9 @@ void wifi_prov()
 ///---------------------------------------------------MAIN PROGRAM---------------------------------------------------///
 ///------------------------------------------------------------------------------------------------------------------///
 _Noreturn void app_main(void) {
+    // Initialize mutex
+    led_mutex = xSemaphoreCreateBinary();
+
     gpio_pad_select_gpio(CONFIG_LED_PIN);
     gpio_pad_select_gpio(CONFIG_LED_ONBOARD);
     gpio_set_direction(CONFIG_LED_PIN, GPIO_MODE_OUTPUT);
@@ -80,8 +107,10 @@ _Noreturn void app_main(void) {
     xEventGroupWaitBits(wifi_event_group, WIFI_CONNECTED_BIT, false, true, portMAX_DELAY);
 
     /* Start main application now */
-    ESP_LOGI(TAG, "Hello World!");
+
     gpio_set_level(CONFIG_LED_PIN, true);
+    gpio_set_level(CONFIG_LED_ONBOARD, true);
+
     ESP_LOGI(TAG,"YOU HAVE MADE IT TRUE THE WIFI SETUP");
     //xTaskCreate(https_request_task, "https_get_task", 8192, NULL, 5, NULL);
 
