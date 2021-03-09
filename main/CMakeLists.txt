@@ -1,2 +1,2 @@
-idf_component_register(SRCS "test_project.c" "wifi_config.c" "tcp_server.c" "http_handler.c" "WiFi_prov.c"
+idf_component_register(SRCS "test_project.c"  "http_handler.c" "WiFi_prov.c"
                     INCLUDE_DIRS ".")
