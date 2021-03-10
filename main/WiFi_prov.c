@@ -16,6 +16,7 @@ void event_handler(void* arg, esp_event_base_t event_base,
         switch (event_id) {
             case WIFI_PROV_START:
                 ESP_LOGI(TAG, "Provisioning started");
+                xSemaphoreGive(led_mutex);
                 break;
             case WIFI_PROV_CRED_RECV: {
                 wifi_sta_config_t *wifi_sta_cfg = (wifi_sta_config_t *)event_data;
@@ -35,6 +36,7 @@ void event_handler(void* arg, esp_event_base_t event_base,
             }
             case WIFI_PROV_CRED_SUCCESS:
                 ESP_LOGI(TAG, "Provisioning successful");
+                xSemaphoreGive(led_mutex);
                 break;
             case WIFI_PROV_END:
                 /* De-initialize manager once provisioning is finished */

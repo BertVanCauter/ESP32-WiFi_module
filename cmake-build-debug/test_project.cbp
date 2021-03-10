@@ -14126,6 +14126,12 @@
 		<Unit filename="/home/bert/esp/test_project/main/http_handler.h">
 			<Option target="__idf_main"/>
 		</Unit>
+		<Unit filename="/home/bert/esp/test_project/main/led_manager.c">
+			<Option target="__idf_main"/>
+		</Unit>
+		<Unit filename="/home/bert/esp/test_project/main/led_manager.h">
+			<Option target="__idf_main"/>
+		</Unit>
 		<Unit filename="/home/bert/esp/test_project/main/test_project.c">
 			<Option target="__idf_main"/>
 		</Unit>

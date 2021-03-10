@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/home/bert/esp/test_project/main/WiFi_prov.c" "/home/bert/esp/test_project/cmake-build-debug/esp-idf/main/CMakeFiles/__idf_main.dir/WiFi_prov.c.obj"
   "/home/bert/esp/test_project/main/http_handler.c" "/home/bert/esp/test_project/cmake-build-debug/esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj"
+  "/home/bert/esp/test_project/main/led_manager.c" "/home/bert/esp/test_project/cmake-build-debug/esp-idf/main/CMakeFiles/__idf_main.dir/led_manager.c.obj"
   "/home/bert/esp/test_project/main/test_project.c" "/home/bert/esp/test_project/cmake-build-debug/esp-idf/main/CMakeFiles/__idf_main.dir/test_project.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

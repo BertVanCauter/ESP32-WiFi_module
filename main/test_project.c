@@ -1,12 +1,25 @@
+#include <alloca.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <esp_expression_with_stack.h>
-
+#include <driver/ledc.h>
 
 #include "config.h"
 #include "http_handler.h"
 #include "WiFi_prov.h"
+#include "led_manager.h"
 
+#include "driver/spi_master.h"
+#include "driver/spi_common.h"
+
+#define PIN_NUM_MISO 25
+#define PIN_NUM_MOSI 23
+#define PIN_NUM_CLK  19
+#define PIN_NUM_CS   22
+
+#define PIN_NUM_DC   21
+#define PIN_NUM_RST  18
+#define PIN_NUM_BCKL 5
 
 void wifi_prov()
 {
@@ -58,30 +71,15 @@ void wifi_prov()
     }
 }
 
-/*void led_manager()
+
+
+
+void lcd_spi_pre_transfer_callback(spi_transaction_t *t)
 {
-    while(1)
-    {
-        if (led_mutex != NULL){
-            if(xSemaphoreTake(led_mutex, portMAX_DELAY) == pdTRUE )
-            {
-                while(xSemaphoreTake(led_mutex, portMAX_DELAY) == pdTRUE )
-                {
-                    int led_level = 0;
-                    led_level = 1-led_level;
-                    gpio_set_level(CONFIG_LED_ONBOARD, led_level);
-                    vTaskDelay(3000 / portTICK_RATE_MS);
-                }
-            }
-            else
-            {
-                // We could not obtain the semaphore and can therefore not access
-                // the shared resource safely.
-                ESP_LOGI(TAG, "%lld : Mutex_TOGGLE timeout...", esp_timer_get_time());
-            }
-        }
-    }
-}*/
+    int dc=(int)t->user;
+    gpio_set_level(PIN_NUM_DC, dc);
+}
+
 
 
 
@@ -93,6 +91,7 @@ _Noreturn void app_main(void) {
     // Initialize mutex
     led_mutex = xSemaphoreCreateBinary();
 
+    // Initialize I/O pins for LED's
     gpio_pad_select_gpio(CONFIG_LED_PIN);
     gpio_pad_select_gpio(CONFIG_LED_ONBOARD);
     gpio_set_direction(CONFIG_LED_PIN, GPIO_MODE_OUTPUT);
@@ -100,6 +99,28 @@ _Noreturn void app_main(void) {
     gpio_set_level(CONFIG_LED_PIN, false);
     gpio_set_level(CONFIG_LED_ONBOARD, false);
 
+    // Initialize I/O pins for SPI-master
+    spi_device_handle_t spi;
+    spi_bus_config_t buscfg={
+            .miso_io_num=PIN_NUM_MISO,
+            .mosi_io_num=PIN_NUM_MOSI,
+            .sclk_io_num=PIN_NUM_CLK,
+            .quadwp_io_num=-1,
+            .quadhd_io_num=-1
+    };
+    spi_device_interface_config_t devcfg={
+            .clock_speed_hz=10*1000*1000,               //Clock out at 10 MHz
+            .mode=0,                                //SPI mode 0
+            .spics_io_num=PIN_NUM_CS,               //CS pin
+            .queue_size=7,                          //We want to be able to queue 7 transactions at a time
+            .pre_cb=lcd_spi_pre_transfer_callback,  //Specify pre-transfer callback to handle D/C line
+    };
+    ESP_ERROR_CHECK(spi_bus_initialize(HSPI_HOST, &buscfg, 1));
+    //Attach the LCD to the SPI bus
+    ESP_ERROR_CHECK(spi_bus_add_device(HSPI_HOST, &devcfg, &spi));
+
+    // led_manager_tasks
+    xTaskCreate(led_manager, "led_manager", 8192, NULL, 5, NULL);
     // wifi provisioning!
     wifi_prov();
 
@@ -107,14 +128,9 @@ _Noreturn void app_main(void) {
     xEventGroupWaitBits(wifi_event_group, WIFI_CONNECTED_BIT, false, true, portMAX_DELAY);
 
     /* Start main application now */
-
-    gpio_set_level(CONFIG_LED_PIN, true);
-    gpio_set_level(CONFIG_LED_ONBOARD, true);
-
     ESP_LOGI(TAG,"YOU HAVE MADE IT TRUE THE WIFI SETUP");
+    gpio_set_level(CONFIG_LED_PIN, true);
     //xTaskCreate(https_request_task, "https_get_task", 8192, NULL, 5, NULL);
-
-
 
 
     while (1) {

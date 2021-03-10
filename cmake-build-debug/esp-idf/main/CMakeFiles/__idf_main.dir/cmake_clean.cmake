@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/__idf_main.dir/WiFi_prov.c.obj"
   "CMakeFiles/__idf_main.dir/http_handler.c.obj"
+  "CMakeFiles/__idf_main.dir/led_manager.c.obj"
   "CMakeFiles/__idf_main.dir/test_project.c.obj"
   "libmain.a"
   "libmain.pdb"
