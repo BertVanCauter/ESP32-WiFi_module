@@ -186,6 +186,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj: /home/bert/esp/esp-id
 esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj: /home/bert/esp/esp-idf/components/esp_event/include/esp_event.h
 esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj: /home/bert/esp/esp-idf/components/esp_event/include/esp_event_base.h
 esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj: /home/bert/esp/esp-idf/components/esp_event/include/esp_event_legacy.h
+esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj: /home/bert/esp/esp-idf/components/esp_http_client/include/esp_http_client.h
 esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj: /home/bert/esp/esp-idf/components/esp_hw_support/include/soc/compare_set.h
 esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj: /home/bert/esp/esp-idf/components/esp_hw_support/include/soc/cpu.h
 esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj: /home/bert/esp/esp-idf/components/esp_hw_support/include/soc/spinlock.h
@@ -324,6 +325,7 @@ esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj: /home/bert/esp/esp-id
 esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj: /home/bert/esp/esp-idf/components/newlib/platform_include/sys/select.h
 esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj: /home/bert/esp/esp-idf/components/newlib/platform_include/sys/time.h
 esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj: /home/bert/esp/esp-idf/components/newlib/platform_include/time.h
+esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj: /home/bert/esp/esp-idf/components/nghttp/port/include/http_parser.h
 esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj: /home/bert/esp/esp-idf/components/nvs_flash/include/nvs.h
 esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj: /home/bert/esp/esp-idf/components/nvs_flash/include/nvs_flash.h
 esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.obj: /home/bert/esp/esp-idf/components/protocomm/include/common/protocomm.h

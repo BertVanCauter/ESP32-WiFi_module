@@ -15,12 +15,11 @@
 #include "esp_tls.h"
 #include "esp_crt_bundle.h"
 
-/* Constants that aren't configurable in menuconfig */
-#define WEB_SERVER "www.google.com"
-#define WEB_PORT "443"
-#define WEB_URL "http://a20fire2.studev.groept.be"
 
-void https_get_request(esp_tls_cfg_t cfg);
-void https_get_request_using_crt_bundle(void);
-void https_request_task(void *pvparameters);
+//Constants that aren't configurable in menuconfig
+
+void http_task();
+
+
+
 #endif //TEST_PROJECT_HTTP_HANDLER_H

@@ -14,8 +14,6 @@ assert.h
 
 /home/bert/esp/esp-idf/components/esp_common/include/esp_compiler.h
 
-/home/bert/esp/esp-idf/components/esp_rom/esp32/esp_rom_caps.h
-
 /home/bert/esp/esp-idf/components/esp_rom/include/esp32/rom/ets_sys.h
 stdint.h
 -
@@ -51,12 +49,6 @@ soc/soc.h
 /home/bert/esp/esp-idf/components/esp_rom/include/esp32s2/rom/soc/soc.h
 soc/rtc_cntl_reg.h
 /home/bert/esp/esp-idf/components/esp_rom/include/esp32s2/rom/soc/rtc_cntl_reg.h
-
-/home/bert/esp/esp-idf/components/esp_rom/patches/esp_rom_crc.c
-stdint.h
--
-esp_rom_caps.h
-/home/bert/esp/esp-idf/components/esp_rom/patches/esp_rom_caps.h
 
 /home/bert/esp/esp-idf/components/esp_rom/patches/esp_rom_sys.c
 stdint.h

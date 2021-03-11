@@ -4,97 +4,64 @@
 
 #include "http_handler.h"
 #include "config.h"
+#include "esp_http_client.h"
+#include "esp_tls.h"
 
-static const char REQUEST[] = "GET " WEB_URL " HTTP/1.1\r\n"
-                              "Host: "WEB_SERVER"\r\n"
-                              "User-Agent: esp-idf/1.0 esp32\r\n"
-                              "\r\n";
-
-void https_get_request(esp_tls_cfg_t cfg)
+esp_err_t http_event_handle(esp_http_client_event_t *evt)
 {
-    char buf[512];
-    int ret, len;
-
-    struct esp_tls *tls = esp_tls_conn_http_new(WEB_URL, &cfg);
-
-    if (tls != NULL) {
-        ESP_LOGI(TAG, "Connection established...");
-    } else {
-        ESP_LOGE(TAG, "Connection failed...");
-        goto exit;
-    }
-
-    size_t written_bytes = 0;
-    do {
-        ret = esp_tls_conn_write(tls,
-                                 REQUEST + written_bytes,
-                                 sizeof(REQUEST) - written_bytes);
-        if (ret >= 0) {
-            ESP_LOGI(TAG, "%d bytes written", ret);
-            written_bytes += ret;
-        } else if (ret != ESP_TLS_ERR_SSL_WANT_READ  && ret != ESP_TLS_ERR_SSL_WANT_WRITE) {
-            ESP_LOGE(TAG, "esp_tls_conn_write  returned: [0x%02X](%s)", ret, esp_err_to_name(ret));
-            goto exit;
-        }
-    } while (written_bytes < sizeof(REQUEST));
-
-    ESP_LOGI(TAG, "Reading HTTP response...");
-
-    do {
-        len = sizeof(buf) - 1;
-        bzero(buf, sizeof(buf));
-        ret = esp_tls_conn_read(tls, (char *)buf, len);
-
-        if (ret == ESP_TLS_ERR_SSL_WANT_WRITE  || ret == ESP_TLS_ERR_SSL_WANT_READ) {
-            continue;
-        }
-
-        if (ret < 0) {
-            ESP_LOGE(TAG, "esp_tls_conn_read  returned [-0x%02X](%s)", -ret, esp_err_to_name(ret));
+    switch(evt->event_id) {
+        case HTTP_EVENT_ERROR:
+            ESP_LOGI(TAG, "HTTP_EVENT_ERROR");
             break;
-        }
-
-        if (ret == 0) {
-            ESP_LOGI(TAG, "connection closed");
+        case HTTP_EVENT_ON_CONNECTED:
+            ESP_LOGI(TAG, "HTTP_EVENT_ON_CONNECTED");
             break;
-        }
+        case HTTP_EVENT_HEADER_SENT:
+            ESP_LOGI(TAG, "HTTP_EVENT_HEADER_SENT");
+            break;
+        case HTTP_EVENT_ON_HEADER:
+            ESP_LOGI(TAG, "HTTP_EVENT_ON_HEADER");
+            printf("%.*s", evt->data_len, (char*)evt->data);
+            break;
+        case HTTP_EVENT_ON_DATA:
+            ESP_LOGI(TAG, "HTTP_EVENT_ON_DATA, len=%d", evt->data_len);
+            if (!esp_http_client_is_chunked_response(evt->client)) {
+                printf("%.*s", evt->data_len, (char*)evt->data);
+            }
 
-        len = ret;
-        ESP_LOGD(TAG, "%d bytes read", len);
-        /* Print response directly to stdout as it is read */
-        for (int i = 0; i < len; i++) {
-            putchar(buf[i]);
-        }
-        putchar('\n'); // JSON output doesn't have a newline at end
-    } while (1);
-
-    exit:
-    esp_tls_conn_delete(tls);
-    for (int countdown = 10; countdown >= 0; countdown--) {
-        ESP_LOGI(TAG, "%d...", countdown);
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
+            break;
+        case HTTP_EVENT_ON_FINISH:
+            ESP_LOGI(TAG, "HTTP_EVENT_ON_FINISH");
+            break;
+        case HTTP_EVENT_DISCONNECTED:
+            ESP_LOGI(TAG, "HTTP_EVENT_DISCONNECTED");
+            break;
     }
+    return ESP_OK;
 }
 
-void https_get_request_using_crt_bundle(void)
+void http_task()
 {
-    ESP_LOGI(TAG, "https_request using crt bundle");
-    esp_tls_cfg_t cfg = {
-            .crt_bundle_attach = esp_crt_bundle_attach,
+    esp_http_client_config_t http_config = {
+            .url = "https://esp32.free.beeceptor.com",
+            .transport_type = HTTP_TRANSPORT_OVER_SSL,
+            .event_handler = http_event_handle,
     };
-    https_get_request(cfg);
-}
+    esp_http_client_handle_t client = esp_http_client_init(&http_config);
+    // first request
+    esp_err_t err = esp_http_client_perform(client);
+    if (err == ESP_OK) {
+        ESP_LOGI(TAG, "Status = %d, content_length = %d",
+                 esp_http_client_get_status_code(client),
+                 esp_http_client_get_content_length(client));
+    }
+    // second request
+    esp_http_client_set_url(client, "https://esp32.free.beeceptor.com/esp32");
+    esp_http_client_set_method(client, HTTP_METHOD_POST);
+    esp_http_client_set_header(client, "Value", "123");
+    esp_http_client_set_post_field(client, "VALUE: 123, ID: 001", strlen("VALUE: 123, ID: 001"));
+    esp_http_client_perform(client);
 
-
-
-
-
-void https_request_task(void *pvparameters)
-{
-    ESP_LOGI(TAG, "Start https_request example");
-
-    https_get_request_using_crt_bundle();
-
-    ESP_LOGI(TAG, "Finish https_request example");
+    esp_http_client_cleanup(client);
     vTaskDelete(NULL);
 }

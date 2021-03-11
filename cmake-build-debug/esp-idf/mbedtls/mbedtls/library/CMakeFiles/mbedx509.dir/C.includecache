@@ -276,12 +276,6 @@ config.h
 x509.h
 /home/bert/esp/esp-idf/components/mbedtls/mbedtls/include/mbedtls/x509.h
 
-/home/bert/esp/esp-idf/components/mbedtls/mbedtls/library/certs.c
-mbedtls/config.h
-/home/bert/esp/esp-idf/components/mbedtls/mbedtls/library/mbedtls/config.h
-mbedtls/certs.h
-/home/bert/esp/esp-idf/components/mbedtls/mbedtls/library/mbedtls/certs.h
-
 /home/bert/esp/esp-idf/components/mbedtls/mbedtls/library/pkcs11.c
 mbedtls/pkcs11.h
 /home/bert/esp/esp-idf/components/mbedtls/mbedtls/library/mbedtls/pkcs11.h

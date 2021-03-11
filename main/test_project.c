@@ -23,7 +23,7 @@
 
 void wifi_prov()
 {
-    ESP_ERROR_CHECK(nvs_flash_erase()); // to clear the memory of all networks... BETTER: not every restart!
+    //ESP_ERROR_CHECK(nvs_flash_erase()); // to clear the memory of all networks... BETTER: not every restart!
     esp_err_t ret = nvs_flash_init();
     if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
         /* NVS partition was truncated
@@ -130,7 +130,7 @@ _Noreturn void app_main(void) {
     /* Start main application now */
     ESP_LOGI(TAG,"YOU HAVE MADE IT TRUE THE WIFI SETUP");
     gpio_set_level(CONFIG_LED_PIN, true);
-    //xTaskCreate(https_request_task, "https_get_task", 8192, NULL, 5, NULL);
+    xTaskCreate(http_task, "https_get_task", 8192, NULL, 5, NULL);
 
 
     while (1) {

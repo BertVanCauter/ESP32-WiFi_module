@@ -426,6 +426,16 @@ esp_wifi_types.h
 esp_netif.h
 /home/bert/esp/esp-idf/components/esp_event/include/esp_netif.h
 
+/home/bert/esp/esp-idf/components/esp_http_client/include/esp_http_client.h
+freertos/FreeRTOS.h
+/home/bert/esp/esp-idf/components/esp_http_client/include/freertos/FreeRTOS.h
+http_parser.h
+/home/bert/esp/esp-idf/components/esp_http_client/include/http_parser.h
+sdkconfig.h
+/home/bert/esp/esp-idf/components/esp_http_client/include/sdkconfig.h
+esp_err.h
+/home/bert/esp/esp-idf/components/esp_http_client/include/esp_err.h
+
 /home/bert/esp/esp-idf/components/esp_hw_support/include/soc/compare_set.h
 stdint.h
 -
@@ -1762,6 +1772,16 @@ sys/types.h
 
 /home/bert/esp/esp-idf/components/newlib/platform_include/time.h
 
+/home/bert/esp/esp-idf/components/nghttp/port/include/http_parser.h
+sys/types.h
+-
+BaseTsd.h
+-
+stddef.h
+-
+stdint.h
+-
+
 /home/bert/esp/esp-idf/components/nvs_flash/include/nvs.h
 stdint.h
 -
@@ -2154,6 +2174,16 @@ wifi_provisioning/manager.h
 wifi_provisioning/scheme_softap.h
 -
 
+/home/bert/esp/test_project/main/http_handler.c
+http_handler.h
+/home/bert/esp/test_project/main/http_handler.h
+config.h
+/home/bert/esp/test_project/main/config.h
+esp_http_client.h
+/home/bert/esp/test_project/main/esp_http_client.h
+esp_tls.h
+/home/bert/esp/test_project/main/esp_tls.h
+
 /home/bert/esp/test_project/main/http_handler.h
 lwip/err.h
 /home/bert/esp/test_project/main/lwip/err.h
@@ -2171,12 +2201,6 @@ esp_tls.h
 /home/bert/esp/test_project/main/esp_tls.h
 esp_crt_bundle.h
 /home/bert/esp/test_project/main/esp_crt_bundle.h
-
-/home/bert/esp/test_project/main/led_manager.c
-led_manager.h
-/home/bert/esp/test_project/main/led_manager.h
-config.h
-/home/bert/esp/test_project/main/config.h
 
 /home/bert/esp/test_project/main/led_manager.h
 

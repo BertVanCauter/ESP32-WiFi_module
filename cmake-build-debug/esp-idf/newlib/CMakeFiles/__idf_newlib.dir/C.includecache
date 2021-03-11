@@ -706,19 +706,11 @@ sys/features.h
 
 /home/bert/esp/esp-idf/components/newlib/platform_include/sys/lock.h
 
-/home/bert/esp/esp-idf/components/newlib/platform_include/sys/poll.h
-
 /home/bert/esp/esp-idf/components/newlib/platform_include/sys/random.h
 sys/types.h
 -
 
 /home/bert/esp/esp-idf/components/newlib/platform_include/sys/reent.h
-
-/home/bert/esp/esp-idf/components/newlib/platform_include/sys/select.h
-sys/types.h
--
-sys/time.h
--
 
 /home/bert/esp/esp-idf/components/newlib/platform_include/sys/termios.h
 stdint.h
@@ -737,18 +729,6 @@ sys/types.h
 /home/bert/esp/esp-idf/components/newlib/platform_include/sys/unistd.h
 
 /home/bert/esp/esp-idf/components/newlib/platform_include/time.h
-
-/home/bert/esp/esp-idf/components/newlib/poll.c
-stddef.h
--
-sys/poll.h
--
-sys/select.h
--
-sys/errno.h
--
-sys/param.h
--
 
 /home/bert/esp/esp-idf/components/newlib/port/esp_time_impl.c
 stdint.h

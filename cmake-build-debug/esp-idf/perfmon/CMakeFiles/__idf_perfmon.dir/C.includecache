@@ -128,10 +128,6 @@ xtensa_perfmon_apis.h
 xtensa_perfmon_masks.h
 /home/bert/esp/esp-idf/components/perfmon/xtensa_perfmon_masks.h
 
-/home/bert/esp/esp-idf/components/perfmon/xtensa_perfmon_masks.c
-xtensa_perfmon_masks.h
-/home/bert/esp/esp-idf/components/perfmon/xtensa_perfmon_masks.h
-
 /home/bert/esp/esp-idf/components/soc/esp32/include/soc/soc.h
 stdint.h
 -
