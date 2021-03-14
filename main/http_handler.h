@@ -18,7 +18,7 @@
 
 //Constants that aren't configurable in menuconfig
 
-void http_task();
+void http_task(int id, double value);
 
 
 

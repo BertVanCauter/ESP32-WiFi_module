@@ -40,10 +40,13 @@ esp_err_t http_event_handle(esp_http_client_event_t *evt)
     return ESP_OK;
 }
 
-void http_task()
+void http_task(int id, double value)
 {
+    char *query = NULL;
+    asprintf(&query, "ID : %d\nVALUE : %f", id, value);
+
     esp_http_client_config_t http_config = {
-            .url = "https://esp32.free.beeceptor.com",
+            .url = "https://esptest32.free.beeceptor.com",
             .transport_type = HTTP_TRANSPORT_OVER_SSL,
             .event_handler = http_event_handle,
     };
@@ -56,12 +59,13 @@ void http_task()
                  esp_http_client_get_content_length(client));
     }
     // second request
-    esp_http_client_set_url(client, "https://esp32.free.beeceptor.com/esp32");
+    esp_http_client_set_url(client, "https://esptest32.free.beeceptor.com");
     esp_http_client_set_method(client, HTTP_METHOD_POST);
     esp_http_client_set_header(client, "Value", "123");
-    esp_http_client_set_post_field(client, "VALUE: 123, ID: 001", strlen("VALUE: 123, ID: 001"));
+    esp_http_client_set_post_field(client, query, strlen(query));
     esp_http_client_perform(client);
 
+    free(query);
     esp_http_client_cleanup(client);
     vTaskDelete(NULL);
 }

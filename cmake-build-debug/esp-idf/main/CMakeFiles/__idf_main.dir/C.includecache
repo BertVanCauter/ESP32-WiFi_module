@@ -234,48 +234,6 @@ esp32c3/rom/gpio.h
 soc/rtc_io_reg.h
 /home/bert/esp/esp-idf/components/driver/include/driver/soc/rtc_io_reg.h
 
-/home/bert/esp/esp-idf/components/driver/include/driver/ledc.h
-esp_err.h
-/home/bert/esp/esp-idf/components/driver/include/driver/esp_err.h
-esp_intr_alloc.h
-/home/bert/esp/esp-idf/components/driver/include/driver/esp_intr_alloc.h
-soc/soc.h
-/home/bert/esp/esp-idf/components/driver/include/driver/soc/soc.h
-hal/ledc_types.h
-/home/bert/esp/esp-idf/components/driver/include/driver/hal/ledc_types.h
-driver/gpio.h
-/home/bert/esp/esp-idf/components/driver/include/driver/driver/gpio.h
-driver/periph_ctrl.h
-/home/bert/esp/esp-idf/components/driver/include/driver/driver/periph_ctrl.h
-
-/home/bert/esp/esp-idf/components/driver/include/driver/periph_ctrl.h
-soc/periph_defs.h
-/home/bert/esp/esp-idf/components/driver/include/driver/soc/periph_defs.h
-
-/home/bert/esp/esp-idf/components/driver/include/driver/spi_common.h
-stdint.h
--
-stdbool.h
--
-esp_err.h
-/home/bert/esp/esp-idf/components/driver/include/driver/esp_err.h
-soc/lldesc.h
-/home/bert/esp/esp-idf/components/driver/include/driver/soc/lldesc.h
-soc/spi_periph.h
-/home/bert/esp/esp-idf/components/driver/include/driver/soc/spi_periph.h
-hal/spi_types.h
-/home/bert/esp/esp-idf/components/driver/include/driver/hal/spi_types.h
-sdkconfig.h
-/home/bert/esp/esp-idf/components/driver/include/driver/sdkconfig.h
-
-/home/bert/esp/esp-idf/components/driver/include/driver/spi_master.h
-esp_err.h
-/home/bert/esp/esp-idf/components/driver/include/driver/esp_err.h
-freertos/FreeRTOS.h
-/home/bert/esp/esp-idf/components/driver/include/driver/freertos/FreeRTOS.h
-driver/spi_common.h
-/home/bert/esp/esp-idf/components/driver/include/driver/driver/spi_common.h
-
 /home/bert/esp/esp-idf/components/esp-tls/esp_tls.h
 stdbool.h
 -
@@ -321,20 +279,6 @@ stdio.h
 -
 assert.h
 -
-
-/home/bert/esp/esp-idf/components/esp_common/include/esp_expression_with_stack.h
-stdbool.h
--
-freertos/FreeRTOS.h
-/home/bert/esp/esp-idf/components/esp_common/include/freertos/FreeRTOS.h
-freertos/semphr.h
-/home/bert/esp/esp-idf/components/esp_common/include/freertos/semphr.h
-freertos/task.h
-/home/bert/esp/esp-idf/components/esp_common/include/freertos/task.h
-esp_debug_helpers.h
-/home/bert/esp/esp-idf/components/esp_common/include/esp_debug_helpers.h
-esp_log.h
-/home/bert/esp/esp-idf/components/esp_common/include/esp_log.h
 
 /home/bert/esp/esp-idf/components/esp_common/include/esp_idf_version.h
 
@@ -542,12 +486,6 @@ soc/gpio_reg.h
 soc/soc_caps.h
 /home/bert/esp/esp-idf/components/esp_rom/include/esp32/rom/soc/soc_caps.h
 
-/home/bert/esp/esp-idf/components/esp_rom/include/esp32/rom/lldesc.h
-stdint.h
--
-sys/queue.h
-/home/bert/esp/esp-idf/components/esp_rom/include/esp32/rom/sys/queue.h
-
 /home/bert/esp/esp-idf/components/esp_rom/include/esp32/rom/sha.h
 stdint.h
 -
@@ -571,12 +509,6 @@ esp_attr.h
 /home/bert/esp/esp-idf/components/esp_rom/include/esp32c3/rom/esp_attr.h
 soc/gpio_reg.h
 /home/bert/esp/esp-idf/components/esp_rom/include/esp32c3/rom/soc/gpio_reg.h
-
-/home/bert/esp/esp-idf/components/esp_rom/include/esp32c3/rom/lldesc.h
-stdint.h
--
-sys/queue.h
-/home/bert/esp/esp-idf/components/esp_rom/include/esp32c3/rom/sys/queue.h
 
 /home/bert/esp/esp-idf/components/esp_rom/include/esp32c3/rom/sha.h
 stdint.h
@@ -604,12 +536,6 @@ esp_attr.h
 soc/gpio_reg.h
 /home/bert/esp/esp-idf/components/esp_rom/include/esp32s2/rom/soc/gpio_reg.h
 
-/home/bert/esp/esp-idf/components/esp_rom/include/esp32s2/rom/lldesc.h
-stdint.h
--
-sys/queue.h
-/home/bert/esp/esp-idf/components/esp_rom/include/esp32s2/rom/sys/queue.h
-
 /home/bert/esp/esp-idf/components/esp_rom/include/esp32s2/rom/sha.h
 stdint.h
 -
@@ -625,12 +551,6 @@ stdbool.h
 -
 soc/soc.h
 /home/bert/esp/esp-idf/components/esp_rom/include/esp32s3/rom/soc/soc.h
-
-/home/bert/esp/esp-idf/components/esp_rom/include/esp32s3/rom/lldesc.h
-stdint.h
--
-sys/queue.h
-/home/bert/esp/esp-idf/components/esp_rom/include/esp32s3/rom/sys/queue.h
 
 /home/bert/esp/esp-idf/components/esp_rom/include/esp32s3/rom/sha.h
 stdint.h
@@ -1058,14 +978,6 @@ soc/gpio_periph.h
 soc/soc_caps.h
 /home/bert/esp/esp-idf/components/hal/include/hal/soc/soc_caps.h
 
-/home/bert/esp/esp-idf/components/hal/include/hal/ledc_types.h
-stdint.h
--
-stdbool.h
--
-soc/soc_caps.h
-/home/bert/esp/esp-idf/components/hal/include/hal/soc/soc_caps.h
-
 /home/bert/esp/esp-idf/components/hal/include/hal/sha_types.h
 sdkconfig.h
 /home/bert/esp/esp-idf/components/hal/include/hal/sdkconfig.h
@@ -1085,16 +997,6 @@ esp_bit_defs.h
 -
 esp_flash_err.h
 /home/bert/esp/esp-idf/components/hal/include/hal/esp_flash_err.h
-
-/home/bert/esp/esp-idf/components/hal/include/hal/spi_types.h
-esp_attr.h
-/home/bert/esp/esp-idf/components/hal/include/hal/esp_attr.h
-esp_bit_defs.h
--
-soc/soc_caps.h
-/home/bert/esp/esp-idf/components/hal/include/hal/soc/soc_caps.h
-sdkconfig.h
-/home/bert/esp/esp-idf/components/hal/include/hal/sdkconfig.h
 
 /home/bert/esp/esp-idf/components/heap/include/esp_heap_caps.h
 stdint.h
@@ -1814,8 +1716,6 @@ esp_err.h
 protocomm.h
 -
 
-/home/bert/esp/esp-idf/components/soc/esp32/include/soc/gpio_pins.h
-
 /home/bert/esp/esp-idf/components/soc/esp32/include/soc/gpio_reg.h
 soc.h
 /home/bert/esp/esp-idf/components/soc/esp32/include/soc/soc.h
@@ -1830,15 +1730,9 @@ stdint.h
 soc.h
 /home/bert/esp/esp-idf/components/soc/esp32/include/soc/soc.h
 
-/home/bert/esp/esp-idf/components/soc/esp32/include/soc/periph_defs.h
-
 /home/bert/esp/esp-idf/components/soc/esp32/include/soc/rtc_io_reg.h
 soc.h
 /home/bert/esp/esp-idf/components/soc/esp32/include/soc/soc.h
-
-/home/bert/esp/esp-idf/components/soc/esp32/include/soc/sdio_slave_pins.h
-
-/home/bert/esp/esp-idf/components/soc/esp32/include/soc/sdmmc_pins.h
 
 /home/bert/esp/esp-idf/components/soc/esp32/include/soc/soc.h
 stdint.h
@@ -1851,26 +1745,6 @@ esp_bit_defs.h
 /home/bert/esp/esp-idf/components/soc/esp32/include/soc/soc_caps.h
 sdkconfig.h
 /home/bert/esp/esp-idf/components/soc/esp32/include/soc/sdkconfig.h
-
-/home/bert/esp/esp-idf/components/soc/esp32/include/soc/soc_pins.h
-soc/gpio_pins.h
-/home/bert/esp/esp-idf/components/soc/esp32/include/soc/soc/gpio_pins.h
-soc/spi_pins.h
-/home/bert/esp/esp-idf/components/soc/esp32/include/soc/soc/spi_pins.h
-soc/sdio_slave_pins.h
-/home/bert/esp/esp-idf/components/soc/esp32/include/soc/soc/sdio_slave_pins.h
-soc/sdmmc_pins.h
-/home/bert/esp/esp-idf/components/soc/esp32/include/soc/soc/sdmmc_pins.h
-
-/home/bert/esp/esp-idf/components/soc/esp32/include/soc/spi_pins.h
-
-/home/bert/esp/esp-idf/components/soc/esp32/include/soc/spi_reg.h
-soc.h
-/home/bert/esp/esp-idf/components/soc/esp32/include/soc/soc.h
-
-/home/bert/esp/esp-idf/components/soc/esp32/include/soc/spi_struct.h
-stdint.h
--
 
 /home/bert/esp/esp-idf/components/soc/include/soc/gpio_periph.h
 stdint.h
@@ -1885,20 +1759,6 @@ soc/soc_caps.h
 /home/bert/esp/esp-idf/components/soc/include/soc/soc/soc_caps.h
 soc/gpio_sig_map.h
 /home/bert/esp/esp-idf/components/soc/include/soc/soc/gpio_sig_map.h
-
-/home/bert/esp/esp-idf/components/soc/include/soc/lldesc.h
-stdbool.h
--
-sdkconfig.h
-/home/bert/esp/esp-idf/components/soc/include/soc/sdkconfig.h
-esp32/rom/lldesc.h
-/home/bert/esp/esp-idf/components/soc/include/soc/esp32/rom/lldesc.h
-esp32s2/rom/lldesc.h
-/home/bert/esp/esp-idf/components/soc/include/soc/esp32s2/rom/lldesc.h
-esp32s3/rom/lldesc.h
-/home/bert/esp/esp-idf/components/soc/include/soc/esp32s3/rom/lldesc.h
-esp32c3/rom/lldesc.h
-/home/bert/esp/esp-idf/components/soc/include/soc/esp32c3/rom/lldesc.h
 
 /home/bert/esp/esp-idf/components/soc/include/soc/soc_memory_layout.h
 stdlib.h
@@ -1915,30 +1775,6 @@ sdkconfig.h
 /home/bert/esp/esp-idf/components/soc/include/soc/sdkconfig.h
 esp_attr.h
 /home/bert/esp/esp-idf/components/soc/include/soc/esp_attr.h
-
-/home/bert/esp/esp-idf/components/soc/include/soc/spi_periph.h
-stdint.h
--
-sdkconfig.h
-/home/bert/esp/esp-idf/components/soc/include/soc/sdkconfig.h
-soc/soc.h
-/home/bert/esp/esp-idf/components/soc/include/soc/soc/soc.h
-soc/periph_defs.h
-/home/bert/esp/esp-idf/components/soc/include/soc/soc/periph_defs.h
-soc/soc_caps.h
-/home/bert/esp/esp-idf/components/soc/include/soc/soc/soc_caps.h
-soc/soc_pins.h
-/home/bert/esp/esp-idf/components/soc/include/soc/soc/soc_pins.h
-soc/spi_reg.h
-/home/bert/esp/esp-idf/components/soc/include/soc/soc/spi_reg.h
-soc/spi_struct.h
-/home/bert/esp/esp-idf/components/soc/include/soc/soc/spi_struct.h
-soc/gpio_sig_map.h
-/home/bert/esp/esp-idf/components/soc/include/soc/soc/gpio_sig_map.h
-soc/spi_mem_struct.h
-/home/bert/esp/esp-idf/components/soc/include/soc/soc/spi_mem_struct.h
-soc/spi_mem_reg.h
-/home/bert/esp/esp-idf/components/soc/include/soc/soc/spi_mem_reg.h
 
 /home/bert/esp/esp-idf/components/spi_flash/include/esp_flash.h
 esp_err.h
@@ -2072,14 +1908,6 @@ stdint.h
 sdkconfig.h
 /home/bert/esp/esp-idf/components/xtensa/include/sdkconfig.h
 
-/home/bert/esp/esp-idf/components/xtensa/include/esp_debug_helpers.h
-stdbool.h
--
-esp_err.h
-/home/bert/esp/esp-idf/components/xtensa/include/esp_err.h
-soc/soc.h
-/home/bert/esp/esp-idf/components/xtensa/include/soc/soc.h
-
 /home/bert/esp/esp-idf/components/xtensa/include/xt_instr_macros.h
 
 /home/bert/esp/esp-idf/components/xtensa/include/xtensa/coreasm.h
@@ -2142,8 +1970,6 @@ xtensa/config/specreg.h
 xtensa/xtruntime-core-state.h
 -
 
-/home/bert/esp/test_project/main/WiFi_prov.h
-
 /home/bert/esp/test_project/main/config.h
 complex.h
 -
@@ -2201,32 +2027,6 @@ esp_tls.h
 /home/bert/esp/test_project/main/esp_tls.h
 esp_crt_bundle.h
 /home/bert/esp/test_project/main/esp_crt_bundle.h
-
-/home/bert/esp/test_project/main/led_manager.h
-
-/home/bert/esp/test_project/main/test_project.c
-alloca.h
--
-stdio.h
--
-stdlib.h
--
-esp_expression_with_stack.h
--
-driver/ledc.h
--
-config.h
-/home/bert/esp/test_project/main/config.h
-http_handler.h
-/home/bert/esp/test_project/main/http_handler.h
-WiFi_prov.h
-/home/bert/esp/test_project/main/WiFi_prov.h
-led_manager.h
-/home/bert/esp/test_project/main/led_manager.h
-driver/spi_master.h
-/home/bert/esp/test_project/main/driver/spi_master.h
-driver/spi_common.h
-/home/bert/esp/test_project/main/driver/spi_common.h
 
 config/sdkconfig.h
 

@@ -191,6 +191,33 @@ __idf_main/fast:
 	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/build
 .PHONY : __idf_main/fast
 
+I-O_manager.obj: I-O_manager.c.obj
+
+.PHONY : I-O_manager.obj
+
+# target to build an object file
+I-O_manager.c.obj:
+	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/I-O_manager.c.obj
+.PHONY : I-O_manager.c.obj
+
+I-O_manager.i: I-O_manager.c.i
+
+.PHONY : I-O_manager.i
+
+# target to preprocess a source file
+I-O_manager.c.i:
+	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/I-O_manager.c.i
+.PHONY : I-O_manager.c.i
+
+I-O_manager.s: I-O_manager.c.s
+
+.PHONY : I-O_manager.s
+
+# target to generate assembly for a file
+I-O_manager.c.s:
+	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/I-O_manager.c.s
+.PHONY : I-O_manager.c.s
+
 WiFi_prov.obj: WiFi_prov.c.obj
 
 .PHONY : WiFi_prov.obj
@@ -245,33 +272,6 @@ http_handler.c.s:
 	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/http_handler.c.s
 .PHONY : http_handler.c.s
 
-led_manager.obj: led_manager.c.obj
-
-.PHONY : led_manager.obj
-
-# target to build an object file
-led_manager.c.obj:
-	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/led_manager.c.obj
-.PHONY : led_manager.c.obj
-
-led_manager.i: led_manager.c.i
-
-.PHONY : led_manager.i
-
-# target to preprocess a source file
-led_manager.c.i:
-	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/led_manager.c.i
-.PHONY : led_manager.c.i
-
-led_manager.s: led_manager.c.s
-
-.PHONY : led_manager.s
-
-# target to generate assembly for a file
-led_manager.c.s:
-	cd /home/bert/esp/test_project/cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/led_manager.c.s
-.PHONY : led_manager.c.s
-
 test_project.obj: test_project.c.obj
 
 .PHONY : test_project.obj
@@ -312,15 +312,15 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... __idf_main"
+	@echo "... I-O_manager.obj"
+	@echo "... I-O_manager.i"
+	@echo "... I-O_manager.s"
 	@echo "... WiFi_prov.obj"
 	@echo "... WiFi_prov.i"
 	@echo "... WiFi_prov.s"
 	@echo "... http_handler.obj"
 	@echo "... http_handler.i"
 	@echo "... http_handler.s"
-	@echo "... led_manager.obj"
-	@echo "... led_manager.i"
-	@echo "... led_manager.s"
 	@echo "... test_project.obj"
 	@echo "... test_project.i"
 	@echo "... test_project.s"
