@@ -19,7 +19,6 @@
 
 //Constants that aren't configurable in menuconfig
 
-void http_task(int id, double value);
 esp_http_client_handle_t http_init_connection();
 void http_post_request(esp_http_client_handle_t client, int id, double value);
 void http_close_connection(esp_http_client_handle_t client);
