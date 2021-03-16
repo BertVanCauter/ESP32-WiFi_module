@@ -93,8 +93,14 @@ _Noreturn void app_main(void) {
 
 
     /* Start main application now */
-    http_task(101, 34.765987);
-    //xTaskCreate(http_task, "https_get_task", 8192, NULL, 5, NULL);
+    // http initialize connection
+    esp_http_client_handle_t client = http_init_connection();
+    // http send out POST requests with data
+    http_post_request(client, 1, 600);
+    http_post_request(client, 2, 500);
+    http_post_request(client, 3, 700);
+    // close the http connection
+    http_close_connection(client);
 
     while (1) {
         vTaskDelay(3000 / portTICK_RATE_MS);

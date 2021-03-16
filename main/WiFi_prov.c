@@ -63,7 +63,6 @@ void wifi_init_sta(void)
     /* Start Wi-Fi in station mode */
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
     ESP_ERROR_CHECK(esp_wifi_start());
-
 }
 
 void get_device_service_name(char *service_name, size_t max)
