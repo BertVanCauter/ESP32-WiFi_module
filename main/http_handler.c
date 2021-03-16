@@ -25,6 +25,7 @@ esp_err_t http_event_handle(esp_http_client_event_t *evt)
             break;
         case HTTP_EVENT_ON_DATA:
             ESP_LOGI(TAG, "HTTP_EVENT_ON_DATA, len=%d", evt->data_len);
+            ESP_LOGI(TAG, "%.*s",evt->data_len, (char*)evt->data );
             if (!esp_http_client_is_chunked_response(evt->client)) {
                 printf("%.*s", evt->data_len, (char*)evt->data);
             }
