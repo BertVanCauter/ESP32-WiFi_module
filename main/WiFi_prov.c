@@ -5,6 +5,8 @@
 #include "config.h"
 #include "WiFi_prov.h"
 
+static int counter = 0;
+
 void event_handler(void* arg, esp_event_base_t event_base,
                           int32_t event_id, void* event_data)
 {
@@ -12,7 +14,7 @@ void event_handler(void* arg, esp_event_base_t event_base,
         switch (event_id) {
             case WIFI_PROV_START:
                 ESP_LOGI(TAG, "Provisioning started");
-                xSemaphoreGive(led_mutex);
+                xSemaphoreGive(led_mutex_blink);
                 break;
             case WIFI_PROV_CRED_RECV: {
                 wifi_sta_config_t *wifi_sta_cfg = (wifi_sta_config_t *)event_data;
@@ -28,13 +30,14 @@ void event_handler(void* arg, esp_event_base_t event_base,
                               "\n\tPlease reset to factory and retry provisioning",
                          (*reason == WIFI_PROV_STA_AUTH_ERROR) ?
                          "Wi-Fi station authentication failed" : "Wi-Fi access-point not found");
+
                 ESP_ERROR_CHECK(nvs_flash_erase());
                 esp_restart();
                 //break;
             }
             case WIFI_PROV_CRED_SUCCESS:
                 ESP_LOGI(TAG, "Provisioning successful");
-                xSemaphoreGive(led_mutex);
+                xSemaphoreGive(led_mutex_blink);
                 break;
             case WIFI_PROV_END:
                 /* De-initialize manager once provisioning is finished */
@@ -53,8 +56,13 @@ void event_handler(void* arg, esp_event_base_t event_base,
     } else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_STA_DISCONNECTED) {
         ESP_LOGI(TAG, "Disconnected. Connecting to the AP again...");
         ESP_ERROR_CHECK(esp_wifi_connect());
-        ESP_ERROR_CHECK(nvs_flash_erase());
-        esp_restart();
+        counter++;
+        if(counter == 5)
+        {
+            counter = 0;
+            ESP_ERROR_CHECK(nvs_flash_erase());
+            esp_restart();
+        }
     }
 }
 

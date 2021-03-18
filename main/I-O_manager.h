@@ -6,5 +6,6 @@
 #define TEST_PROJECT_I_O_MANAGER_H
 
 _Noreturn void led_manager();
+_Noreturn void led_blinker();
 
 #endif //TEST_PROJECT_I_O_MANAGER_H

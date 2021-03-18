@@ -17,10 +17,10 @@
 #include "esp_http_client.h"
 #include "esp_tls.h"
 
-//Constants that aren't configurable in menuconfig
+#define DB_URL "https://a20fire2.studev.groept.be/api/records"
 
 esp_http_client_handle_t http_init_connection();
-void http_post_request(esp_http_client_handle_t client, int id, double value);
+void http_post_request(int id, double value);
 void http_close_connection(esp_http_client_handle_t client);
 
 

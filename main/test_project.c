@@ -55,24 +55,23 @@ void init_spi()
 void init_io()
 {
     // Initialize I/O pins
-    gpio_pad_select_gpio(CONFIG_LED_PIN);
     gpio_pad_select_gpio(CONFIG_LED_ONBOARD);
-
     // select mode of I/O pins
-    gpio_set_direction(CONFIG_LED_PIN, GPIO_MODE_OUTPUT);
     gpio_set_direction(CONFIG_LED_ONBOARD, GPIO_MODE_OUTPUT);
-
     // set initial values
-    gpio_set_level(CONFIG_LED_PIN, false);
     gpio_set_level(CONFIG_LED_ONBOARD, false);
+
 }
+
+
+
 
 ///------------------------------------------------------------------------------------------------------------------///
 ///---------------------------------------------------MAIN PROGRAM---------------------------------------------------///
 ///------------------------------------------------------------------------------------------------------------------///
 _Noreturn void app_main(void) {
     // Initialize mutex
-    led_mutex = xSemaphoreCreateBinary();
+    led_mutex_blink = xSemaphoreCreateBinary();
 
     // Initialize i/O for the LED's
     init_io();
@@ -82,25 +81,19 @@ _Noreturn void app_main(void) {
 
     // led_manager_tasks
     xTaskCreate(led_manager, "led_manager", 8192, NULL, 5, NULL);
+    xTaskCreate(led_blinker, "led_blinker", 8192, NULL, 5, NULL);
 
     // wifi provisioning!
     wifi_prov();
-
     /* Wait for Wi-Fi connection */
     xEventGroupWaitBits(wifi_event_group, WIFI_CONNECTED_BIT, false, true, portMAX_DELAY);
-    ESP_LOGI(TAG,"YOU HAVE MADE IT TRUE THE WIFI SETUP");
-    gpio_set_level(CONFIG_LED_PIN, true);
-
 
     /* Start main application now */
-    // http initialize connection
-    esp_http_client_handle_t client = http_init_connection();
+
     // http send out POST requests with data
-    http_post_request(client, 1, 600);
-    http_post_request(client, 2, 500);
-    http_post_request(client, 3, 700);
-    // close the http connection
-    http_close_connection(client);
+    http_post_request(1, 246.23);
+    http_post_request(2, 365.12);
+    http_post_request(3, 189.23);
 
     while (1) {
         vTaskDelay(3000 / portTICK_RATE_MS);

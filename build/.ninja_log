@@ -2093,3 +2093,7 @@
 40209	43248	1615456701	test_project.elf	81b8ffd80651d11a
 43248	43475	1615456701	.bin_timestamp	a9ebe0ff14d26af6
 0	31861	0	CMakeFiles/menuconfig	825c98c6cda05d04
+10	5033	1615911988	build.ninja	549f81c03f86ad14
+0	53972	0	CMakeFiles/menuconfig	825c98c6cda05d04
+1	3222	1615930627	build.ninja	549f81c03f86ad14
+0	17223	0	CMakeFiles/menuconfig	825c98c6cda05d04

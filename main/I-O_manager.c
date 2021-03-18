@@ -5,18 +5,19 @@
 #include "I-O_manager.h"
 #include "config.h"
 
+bool blink = false;
+bool toggle = false;
 _Noreturn void led_manager()
 {
     ESP_LOGI(TAG, "Led_manager task is running in different thread...");
-    bool toggle = false;
+
     while(1)
     {
-        if (led_mutex != NULL){
-
-            if(xSemaphoreTake(led_mutex, portMAX_DELAY) == pdTRUE )
+        if (led_mutex_blink != NULL)
+        {
+            if(xSemaphoreTake(led_mutex_blink, portMAX_DELAY) == pdTRUE )
             {
-                toggle = 1 - toggle;
-                gpio_set_level(CONFIG_LED_ONBOARD, toggle);
+                blink = 1 - blink;
             }
             else
             {
@@ -25,6 +26,23 @@ _Noreturn void led_manager()
                 ESP_LOGI(TAG, "%lld : Mutex_TOGGLE timeout...", esp_timer_get_time());
             }
         }
+    }
+}
+
+_Noreturn void led_blinker()
+{
+    while(1)
+    {
+        if(blink == true)
+        {
+            toggle = 1 - toggle;
+            gpio_set_level(CONFIG_LED_ONBOARD, toggle);
+        }
+        else if (blink == false)
+        {
+            gpio_set_level(CONFIG_LED_ONBOARD, true);
+        }
+        vTaskDelay(250/ portTICK_RATE_MS); // decides blinking frequency
     }
 }
 
