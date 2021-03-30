@@ -2157,6 +2157,8 @@ freertos/task.h
 /home/bert/esp/test_project/main/freertos/task.h
 freertos/event_groups.h
 /home/bert/esp/test_project/main/freertos/event_groups.h
+freertos/queue.h
+/home/bert/esp/test_project/main/freertos/queue.h
 driver/gpio.h
 /home/bert/esp/test_project/main/driver/gpio.h
 esp_log.h
@@ -2221,8 +2223,6 @@ I-O_manager.h
 /home/bert/esp/test_project/main/I-O_manager.h
 driver/spi_master.h
 /home/bert/esp/test_project/main/driver/spi_master.h
-driver/spi_common.h
-/home/bert/esp/test_project/main/driver/spi_common.h
 
 config/sdkconfig.h
 

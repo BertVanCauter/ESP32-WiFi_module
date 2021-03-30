@@ -11,46 +11,6 @@
 #include "I-O_manager.h"
 
 #include "driver/spi_master.h"
-#include "driver/spi_common.h"
-
-#define PIN_NUM_MISO 25
-#define PIN_NUM_MOSI 23
-#define PIN_NUM_CLK  19
-#define PIN_NUM_CS   22
-
-#define PIN_NUM_DC   21
-#define PIN_NUM_RST  18
-#define PIN_NUM_BCKL 5
-
-
-
-//---------------------------------SPI------------------------------------------//
-void lcd_spi_pre_transfer_callback(spi_transaction_t *t)
-{
-    int dc=(int)t->user;
-    gpio_set_level(PIN_NUM_DC, dc);
-}
-void init_spi()
-{
-    spi_device_handle_t spi;
-    spi_bus_config_t buscfg={
-            .miso_io_num=PIN_NUM_MISO,
-            .mosi_io_num=PIN_NUM_MOSI,
-            .sclk_io_num=PIN_NUM_CLK,
-            .quadwp_io_num=-1,
-            .quadhd_io_num=-1
-    };
-    spi_device_interface_config_t devcfg={
-            .clock_speed_hz=10*1000*1000,               //Clock out at 10 MHz
-            .mode=0,                                //SPI mode 0
-            .spics_io_num=PIN_NUM_CS,               //CS pin
-            .queue_size=7,                          //We want to be able to queue 7 transactions at a time
-            .pre_cb=lcd_spi_pre_transfer_callback,  //Specify pre-transfer callback to handle D/C line
-    };
-    ESP_ERROR_CHECK(spi_bus_initialize(HSPI_HOST, &buscfg, 1));
-    //Attach the LCD to the SPI bus
-    ESP_ERROR_CHECK(spi_bus_add_device(HSPI_HOST, &devcfg, &spi));
-}
 
 void init_io()
 {
@@ -60,10 +20,12 @@ void init_io()
     gpio_set_direction(CONFIG_LED_ONBOARD, GPIO_MODE_OUTPUT);
     // set initial values
     gpio_set_level(CONFIG_LED_ONBOARD, false);
-
 }
 
+void init_spi()
+{
 
+}
 
 
 ///------------------------------------------------------------------------------------------------------------------///
@@ -76,24 +38,49 @@ _Noreturn void app_main(void) {
     // Initialize i/O for the LED's
     init_io();
 
-    // Initialize I/O pins for SPI-master
-    init_spi();
-
     // led_manager_tasks
     xTaskCreate(led_manager, "led_manager", 8192, NULL, 5, NULL);
     xTaskCreate(led_blinker, "led_blinker", 8192, NULL, 5, NULL);
+
+    // shared buffer created
+    buffer = xQueueCreate(100, sizeof(data_t));
+    if(buffer == 0)
+    {
+        ESP_LOGI(TAG, "The buffer is nog created");
+    }
 
     // wifi provisioning!
     wifi_prov();
     /* Wait for Wi-Fi connection */
     xEventGroupWaitBits(wifi_event_group, WIFI_CONNECTED_BIT, false, true, portMAX_DELAY);
 
-    /* Start main application now */
 
-    // http send out POST requests with data
-    http_post_request(1, 246.23);
-    http_post_request(2, 365.12);
-    http_post_request(3, 189.23);
+    /*----------------------------*/
+    /* Start main application now */
+    /*----------------------------*/
+    //task that reads the buffer for incoming data and sending it to the database.
+    xTaskCreate(http_task, "http_task", 8192, NULL, 5, NULL);
+
+    for(int index = 0; index<1; index++) {
+        double random_value;
+        srand ( time ( NULL));
+        random_value = (double)rand()/RAND_MAX*2.0;//float in range -1 to 1
+        data_t data;
+        data.sensorId = 1;
+        data.value = random_value*100;
+        xQueueSendToBack(buffer, &data, (TickType_t) 1);
+        srand ( time ( NULL));
+        random_value = (double)rand()/RAND_MAX/2.0;//float in range -1 to 1
+        //vTaskDelay((6000 / portTICK_RATE_MS)); // just to test what the program will do when there is a long time
+        data.sensorId = 2;                               // no data in the buffer!
+        data.value = random_value*100;
+        xQueueSendToBack(buffer, &data, (TickType_t) 1);
+        srand ( time ( NULL));
+        random_value = (double)rand()/RAND_MAX/2.0;//float in range -1 to 1
+        data.sensorId = 3;
+        data.value = random_value*100;
+        xQueueSendToBack(buffer, &data, (TickType_t) 1);
+    }
 
     while (1) {
         vTaskDelay(3000 / portTICK_RATE_MS);

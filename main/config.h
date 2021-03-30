@@ -10,6 +10,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/event_groups.h"
+#include "freertos/queue.h"
 #include "driver/gpio.h"            //io pins configuration
 #include "esp_log.h"                //logging
 #include "esp_event.h"
@@ -28,8 +29,15 @@
 #define WIFI_CONNECTED_BIT BIT0
 #define WIFI_FAIL_BIT      BIT1
 
+
 EventGroupHandle_t wifi_event_group;
 SemaphoreHandle_t led_mutex_blink;
+QueueHandle_t buffer;
+
+typedef struct data{
+    int sensorId;
+    double value;
+}data_t;
 
 void wifi_prov();
 

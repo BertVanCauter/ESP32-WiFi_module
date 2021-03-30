@@ -18,7 +18,7 @@
 #include "esp_tls.h"
 
 #define DB_URL "https://a20fire2.studev.groept.be/api/records"
-
+void http_task();
 esp_http_client_handle_t http_init_connection();
 void http_post_request(int id, double value);
 void http_close_connection(esp_http_client_handle_t client);

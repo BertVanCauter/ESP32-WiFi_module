@@ -6,6 +6,23 @@
 #include "config.h"
 
 
+_Noreturn void http_task()
+{
+    data_t data;
+    while(1)
+    {
+        if(buffer != 0)
+        {
+            if(xQueueReceive(buffer, &data, (TickType_t) 10))
+            {
+                int id = data.sensorId;
+                double value = data.value;
+                http_post_request(id, value);
+            }
+        }
+    }
+}
+
 esp_err_t http_event_handle(esp_http_client_event_t *evt)
 {
     switch(evt->event_id) {
