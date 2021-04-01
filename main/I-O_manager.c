@@ -43,6 +43,12 @@ _Noreturn void led_blinker()
             gpio_set_level(CONFIG_LED_ONBOARD, true);
         }
         vTaskDelay(250/ portTICK_RATE_MS); // decides blinking frequency
+
+        if(gpio_get_level(CONFIG_BUTTON)==1) // button listener if button is pressed long enough chip will
+        {                                             // restart and provision new netwokr
+            ESP_ERROR_CHECK(nvs_flash_erase());
+            esp_restart();
+        }
     }
 }
 

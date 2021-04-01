@@ -104,7 +104,10 @@ esp_err_t custom_prov_data_handler(uint32_t session_id, const uint8_t *inbuf, ss
 
 void wifi_prov()
 {
-    //ESP_ERROR_CHECK(nvs_flash_erase()); // to clear the memory of all networks... BETTER: not every restart!
+   /* if(gpio_get_level(CONFIG_BUTTON) == 1) // replaced with butten listeren in the i/o task
+    {
+        ESP_ERROR_CHECK(nvs_flash_erase()); // to clear the memory of all networks... BETTER: not every restart!
+    }*/
     esp_err_t ret = nvs_flash_init();
     if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
         /* NVS partition was truncated

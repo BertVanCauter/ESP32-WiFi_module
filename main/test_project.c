@@ -12,19 +12,54 @@
 
 #include "driver/spi_master.h"
 
+#define MISO GPIO_NUM_19
+#define MOSI GPIO_NUM_18
+#define CLK GPIO_NUM_5
+#define CS GPIO_NUM_22
+
+#define DMA_CHAN 2
+
+
 void init_io()
 {
     // Initialize I/O pins
     gpio_pad_select_gpio(CONFIG_LED_ONBOARD);
+    gpio_pad_select_gpio(CONFIG_BUTTON);
     // select mode of I/O pins
     gpio_set_direction(CONFIG_LED_ONBOARD, GPIO_MODE_OUTPUT);
+    gpio_set_direction(CONFIG_BUTTON, GPIO_MODE_INPUT);
     // set initial values
     gpio_set_level(CONFIG_LED_ONBOARD, false);
+    gpio_set_pull_mode(CONFIG_BUTTON, GPIO_PULLDOWN_ONLY);
+
+}
+
+void spi_pre_transfer_callback(spi_transaction_t *t)
+{
+
 }
 
 void init_spi()
 {
-
+    /*spi_device_handle_t spi;
+    spi_bus_config_t buscfg = {
+            .miso_io_num = MISO,
+            .mosi_io_num = MOSI,
+            .sclk_io_num = CLK,
+            .quadwp_io_num = 1,
+            .quadhd_io_num = 1,
+            .max_transfer_sz = 32
+    };
+    spi_device_interface_config_t  devcnf = {
+            .clock_speed_hz = 10*1000*1000, // 10MHz
+            .mode = 0,
+            .spics_io_num = CS,
+            .queue_size = 10,
+            .pre_cb = spi_pre_transfer_callback,
+    };
+    ESP_ERROR_CHECK(spi_bus_initialize(HSPI_HOST, &buscfg, DMA_CHAN));
+    ESP_ERROR_CHECK(spi_bus_add_device(HSPI_HOST, &devcnf, &spi));
+    ESP_LOGI(TAG, "The SPI initialization was successful!");*/
 }
 
 
@@ -37,6 +72,9 @@ _Noreturn void app_main(void) {
 
     // Initialize i/O for the LED's
     init_io();
+
+    // Initialize SPI
+    //init_spi();
 
     // led_manager_tasks
     xTaskCreate(led_manager, "led_manager", 8192, NULL, 5, NULL);
@@ -62,24 +100,20 @@ _Noreturn void app_main(void) {
     xTaskCreate(http_task, "http_task", 8192, NULL, 5, NULL);
 
     for(int index = 0; index<1; index++) {
-        double random_value;
-        srand ( time ( NULL));
-        random_value = (double)rand()/RAND_MAX*2.0;//float in range -1 to 1
+
         data_t data;
         data.sensorId = 1;
-        data.value = random_value*100;
-        xQueueSendToBack(buffer, &data, (TickType_t) 1);
-        srand ( time ( NULL));
-        random_value = (double)rand()/RAND_MAX/2.0;//float in range -1 to 1
+        data.value = 157;
+        xQueueSendToBack(buffer, &data, (TickType_t) 0);
+
         //vTaskDelay((6000 / portTICK_RATE_MS)); // just to test what the program will do when there is a long time
         data.sensorId = 2;                               // no data in the buffer!
-        data.value = random_value*100;
-        xQueueSendToBack(buffer, &data, (TickType_t) 1);
-        srand ( time ( NULL));
-        random_value = (double)rand()/RAND_MAX/2.0;//float in range -1 to 1
+        data.value = 248;
+        xQueueSendToBack(buffer, &data, (TickType_t) 0);
+
         data.sensorId = 3;
-        data.value = random_value*100;
-        xQueueSendToBack(buffer, &data, (TickType_t) 1);
+        data.value = 396;
+        xQueueSendToBack(buffer, &data, (TickType_t) 0);
     }
 
     while (1) {

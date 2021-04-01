@@ -23,6 +23,7 @@
 
 
 #define CONFIG_LED_ONBOARD GPIO_NUM_13
+#define CONFIG_BUTTON GPIO_NUM_4
 
 #define PORT 3333
 #define TAG "test_project"
@@ -36,7 +37,7 @@ QueueHandle_t buffer;
 
 typedef struct data{
     int sensorId;
-    double value;
+    int value;
 }data_t;
 
 void wifi_prov();

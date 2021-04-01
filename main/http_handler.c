@@ -16,7 +16,7 @@ _Noreturn void http_task()
             if(xQueueReceive(buffer, &data, (TickType_t) 10))
             {
                 int id = data.sensorId;
-                double value = data.value;
+                int value = data.value;
                 http_post_request(id, value);
             }
         }
@@ -70,10 +70,10 @@ esp_http_client_handle_t http_init_connection()
     return client;
 }
 
-void http_post_request(int id, double value)
+void http_post_request(int id, int value)
 {
     char *query = NULL;
-    asprintf(&query, "{\"sensorId\":\"%d\",\"value\":\"%f\"}", id, value); //this is a way of sending JSON.
+    asprintf(&query, "{\"sensorId\":\"%d\",\"value\":\"%d\"}", id, value); //this is a way of sending JSON.
 
     esp_http_client_config_t http_config = {
             .url = DB_URL,
